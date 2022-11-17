@@ -1,0 +1,118 @@
+html {
+    display: block;
+    height: 110vh!important;
+    width:110vw!important;
+    overflow:hidden;
+    margin:0;
+    padding:0; 
+  }
+  .indeximage{
+   position:absolute;
+    display:block;
+    top:0;
+    left:0;
+    bottom:0;
+    background: url(https://images.unsplash.com/photo-1572756317709-fe9c15ced298?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmxhY2slMjBhbmQlMjB3aGl0ZSUyMHRleHR1cmV8ZW58MHx8MHx8&w=1000&q=80)center center;
+    width:110vw!important;
+    height:110vh!important;
+    overflow:hidden!important;
+    
+    
+  }
+  
+  .datamosh{
+    z-index:-1;
+  }
+  
+  .legalobligation{
+    position: fixed;
+    top: 95%;
+    text-align:center;
+    width:100vw;
+    font-size:8px;
+  }
+  
+  .policylink{
+    text-decoration:none; 
+    color:#fff;
+    letter-spacing: .15vmax;
+    filter:none;
+  }
+  
+  .policylink:hover{
+    filter:opacity(.5);
+  }
+  
+  @media only screen and (max-width: 900px) {
+    .policylink{
+    letter-spacing: .01vmax;
+  }  
+  }
+  
+  .indeximage {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: .15s linear;
+    overflow: hidden;
+   height: 120vh;
+      min-width: 100vw;
+      object-fit: cover;
+  }
+  
+  .indeximage2{
+      position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: .15s linear;
+    overflow: hidden;
+    max-width:100vmin;
+    height:auto;
+      filter: drop-shadow(0 0 15px #fff);
+    -webkit-filter: drop-shadow(0 0 15px #fff);
+    -o-filter: drop-shadow(0 0 15px #fff);
+    -moz-filter: drop-shadow(0 0 15px #fff);
+    opacity:1;
+  }
+  
+  .indeximage2:active{
+     -webkit-animation: flickerAnimation .05s 2;
+      -moz-animation: flickerAnimation .05s 2;
+      -o-animation: flickerAnimation .05s 2;
+      animation: flickerAnimation .05s 2;
+  }
+  
+  .digitalbodega{
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      transition: .15s linear;
+      overflow: hidden;
+      margin-top: 8vmin;
+      margin-left: auto;
+      margin-right: auto;
+      display: inline-flex;
+        filter: drop-shadow(0 0 15px #fff);
+    -webkit-filter: drop-shadow(0 0 15px #fff);
+    -o-filter: drop-shadow(0 0 15px #fff);
+    -moz-filter: drop-shadow(0 0 15px #fff);
+  }
+  
+  .indeximage2:hover{
+    opacity:.6;
+  }
+  
+  
+  @media only screen and (max-width: 989px) {
+    .block {
+      display: none !important; }
+   }
+  
+  .indexOuter {
+    height: 100vh !important;
+    width: 100vw !important;
+    overflow: hidden !important; }
+  
