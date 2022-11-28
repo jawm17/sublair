@@ -4,6 +4,8 @@ import upBtn from "./upBtn.png";
 import "./app.css";
 
 function App() {
+
+
   let open = false;
   const product = {
     description: "zectangles",
@@ -22,18 +24,20 @@ function App() {
 
   function openPage() {
     if (open === true) {
-      document.getElementById("mainFooter").style.top = "calc(100vh - 95px)";
-      document.getElementById("homeSlide").style.transform = "scaleY(0)";
+      document.getElementById("mainFooter").style.top = "calc(100vh - 76px)";
+      setTimeout(() => {
+        document.getElementById("homeSlide").style.transform = "scaleY(0)";
+      }, 40);
       document.getElementById("upBtn").style.transform = "rotate(0deg)";
       document.getElementById("itemArea").style.opacity = "0%";
     } else {
+      document.getElementById("mainFooter").style.top = "12px";
       document.getElementById("homeSlide").style.transform = "scaleY(1)";
-      document.getElementById("mainFooter").style.top = "15px";
       document.getElementById("upBtn").style.transform = "rotate(180deg)";
 
       setTimeout(() => {
         document.getElementById("itemArea").style.opacity = "100%";
-      }, 100);
+      }, 450);
     }
     open = !open;
   }
