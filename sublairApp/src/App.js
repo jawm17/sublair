@@ -43,7 +43,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div onClick={() => rippleClick()}>
 
       {/* <PaypalCheckoutButton product={product}/> */}
 
