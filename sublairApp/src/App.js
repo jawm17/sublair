@@ -13,16 +13,14 @@ function App() {
   }
 
   function rippleClick(e) {
-    // window.test(e.clientX + 75, e.clientY + 50);
-    window.test((window.innerWidth / 2) + 75, (window.innerHeight / 2) + 50);
-  
+    window.test(e.clientX + 75, e.clientY + 50);
   }
 
-  function opensPage(state) {
-    document.getElementById("bg").style.transform = "scaleY(1)";
-    document.getElementById("mainFooter").style.top = "15px";
-    rotateBtn();
-  }
+  // function openPage(state) {
+  //   document.getElementById("bg").style.transform = "scaleY(1)";
+  //   document.getElementById("mainFooter").style.top = "15px";
+  //   rotateBtn();
+  // }
 
   function openPage() {
     if (open === true) {
