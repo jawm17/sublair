@@ -18,11 +18,11 @@ function App() {
   
   }
 
-  // function openPage(state) {
-  //   document.getElementById("bg").style.transform = "scaleY(1)";
-  //   document.getElementById("mainFooter").style.top = "15px";
-  //   rotateBtn();
-  // }
+  function opensPage(state) {
+    document.getElementById("bg").style.transform = "scaleY(1)";
+    document.getElementById("mainFooter").style.top = "15px";
+    rotateBtn();
+  }
 
   function openPage() {
     if (open === true) {
