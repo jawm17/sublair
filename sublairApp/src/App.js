@@ -13,7 +13,9 @@ function App() {
   }
 
   function rippleClick(e) {
-    window.test(e.clientX + 75, e.clientY + 50);
+    // window.test(e.clientX + 75, e.clientY + 50);
+    window.test((window.innerWidth / 2) + 75, (window.innerHeight / 2) + 50);
+  
   }
 
   // function openPage(state) {
