@@ -12,6 +12,7 @@ function Home() {
 
     function rippleClick(e) {
         // window.test(e.clientX + 75, e.clientY + 50);
+        alert("otay");
         window.test((window.innerWidth / 2) + 75, (window.innerHeight / 2) + 50);
     }
 
