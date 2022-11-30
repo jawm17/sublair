@@ -1,5 +1,5 @@
 /**
- * jQuery Ripples plugin v0.6.3 / https://github.com/sirxemic/jquery.ripples
+ * jQuery Ripples plugin v0.6.0 / https://github.com/sirxemic/jquery.ripples
  * MIT License
  * @author sirxemic / https://sirxemic.com/
  */
@@ -58,7 +58,7 @@ function loadConfig() {
 
 	var configs = [];
 
-	function createConfig(type, glType, arrayType) {
+	function createConfig(type, glType) {
 		var name = 'OES_texture_' + type,
 				nameLinear = name + '_linear',
 				linearSupport = nameLinear in extensions,
@@ -70,22 +70,18 @@ function loadConfig() {
 
 		return {
 			type: glType,
-			arrayType: arrayType,
 			linearSupport: linearSupport,
 			extensions: configExtensions
 		};
 	}
 
 	configs.push(
-		createConfig('float', gl.FLOAT, Float32Array)
+		createConfig('float', gl.FLOAT)
 	);
 
 	if (extensions.OES_texture_half_float) {
 		configs.push(
-			// Array type should be Uint16Array, but at least on iOS that breaks. In that case we
-			// just initialize the textures with data=null, instead of data=new Uint16Array(...).
-			// This makes initialization a tad slower, but it's still negligible.
-			createConfig('half_float', extensions.OES_texture_half_float.HALF_FLOAT_OES, null)
+			createConfig('half_float', extensions.OES_texture_half_float.HALF_FLOAT_OES)
 		);
 	}
 
@@ -266,17 +262,15 @@ var Ripples = function (el, options) {
 	});
 
 	// Auto-resize when window size changes.
-	this.updateSize = this.updateSize.bind(this);
-	$(window).on('resize', this.updateSize);
+	$(window).on('resize', function() {
+		that.updateSize();
+	});
 
 	// Init rendertargets for ripple data.
 	this.textures = [];
 	this.framebuffers = [];
 	this.bufferWriteIndex = 0;
 	this.bufferReadIndex = 1;
-
-	var arrayType = config.arrayType;
-	var textureData = arrayType ? new arrayType(this.resolution * this.resolution * 4) : null;
 
 	for (var i = 0; i < 2; i++) {
 		var texture = gl.createTexture();
@@ -289,7 +283,7 @@ var Ripples = function (el, options) {
 		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, config.linearSupport ? gl.LINEAR : gl.NEAREST);
 		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
 		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-		gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, this.resolution, this.resolution, 0, gl.RGBA, config.type, textureData);
+		gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, this.resolution, this.resolution, 0, gl.RGBA, config.type, null);
 
 		gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, texture, 0);
 
@@ -374,7 +368,7 @@ Ripples.prototype = {
 			.on('mousemove.ripples', function(e) {
 				dropAtPointer(e);
 			})
-			.on('touchmove.ripples touchstart.ripples', function(e) {
+			.on('touchmove.ripples, touchstart.ripples', function(e) {
 				var touches = e.originalEvent.changedTouches;
 				for (var i = 0; i < touches.length; i++) {
 					dropAtPointer(touches[i]);
@@ -810,11 +804,6 @@ Ripples.prototype = {
 			.off('.ripples')
 			.removeClass('jquery-ripples')
 			.removeData('ripples');
-
-		// Make sure the last used context is garbage-collected
-		gl = null;
-
-		$(window).off('resize', this.updateSize);
 
 		this.$canvas.remove();
 		this.restoreCssBackground();
