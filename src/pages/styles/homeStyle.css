@@ -61,6 +61,16 @@
     font-weight: bold;
     font-size: 14px;
   }
+
+  #upBtnArea {
+    width: 80px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0px;
+  }
   
   #upBtn {
     width: 24px;

@@ -34,7 +34,7 @@ function Home() {
             document.getElementById("itemArea").style.opacity = "0%";
         } else {
             // page open
-            document.getElementById("mainFooter").style.bottom = "calc(env(safe-area-inset-bottom) + 20px)";
+            document.getElementById("mainFooter").style.bottom = "calc(100vh - env(safe-area-inset-bottom) - 72px)";
             document.getElementById("homeSlide").style.transform = "scaleY(1)";
             document.getElementById("upBtn").style.transform = "rotate(180deg)";
             setTimeout(() => {
@@ -44,8 +44,8 @@ function Home() {
     }
 
     useEffect(() => {
-        if(focused) {
-          
+        if (focused) {
+
         }
     }, [focused]);
 
@@ -57,7 +57,9 @@ function Home() {
                 <div id="footTitle">
                     SUBLAIR
                 </div>
-                <img src={upBtn} id="upBtn" onClick={() => openPage()}></img>
+                <div id="upBtnArea" onClick={() => openPage()}>
+                    <img src={upBtn} id="upBtn"></img>
+                </div>
             </div>
 
             <div id="homeSlide">
