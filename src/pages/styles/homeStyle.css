@@ -212,18 +212,18 @@
     #productImageArea {
       position: relative;
       width: 100%;
-      height: calc(100vh - 220px);
-      max-height: 400px;
+      height: initial;
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-top: 40px;
+      margin-top: 0px;
+      /* background-color: blue; */
     }
 
     #productInfoOuter {
       float: right;
       width: 100%;
-      height: calc(100vh - 220px);
+      height: initial;
       display: flex;
       justify-content: center;
       align-items: center;
