@@ -24,6 +24,8 @@ function Home() {
 
     function openPage() {
         if (document.getElementById("mainFooter").style.top === "12px") {
+            // page close
+            setFocused(false);
             document.getElementById("mainFooter").style.top = "calc(100vh - 76px)";
             setTimeout(() => {
                 document.getElementById("homeSlide").style.transform = "scaleY(0)";
@@ -31,6 +33,7 @@ function Home() {
             document.getElementById("upBtn").style.transform = "rotate(0deg)";
             document.getElementById("itemArea").style.opacity = "0%";
         } else {
+            // page open
             document.getElementById("mainFooter").style.top = "12px";
             document.getElementById("homeSlide").style.transform = "scaleY(1)";
             document.getElementById("upBtn").style.transform = "rotate(180deg)";

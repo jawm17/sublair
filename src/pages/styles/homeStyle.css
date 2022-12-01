@@ -1,7 +1,7 @@
 #mainFooter {
     position: fixed;
-    /* top: calc(100vh - 76px); */
-    bottom: env(safe-area-inset-bottom);
+    top: calc(100vh - 76px);
+    /* bottom: env(safe-area-inset-bottom); */
     left: 10px;
     width: calc(100vw - 20px);
     height: 64px;
