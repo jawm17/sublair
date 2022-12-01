@@ -12,6 +12,7 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home/>} exact  />
+        <Route path="/shop" element={<Home/>} exact  />
       </Routes>
     </BrowserRouter>
   );

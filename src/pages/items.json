@@ -1,0 +1,57 @@
+[
+    {
+        "image": "https://cdn.shopify.com/s/files/1/1672/7095/products/CSH01E2_720x.png?v=1661039920",
+        "price": 42,
+        "name": "dark hoodie"
+    },
+    {
+        "image": "https://cdn.shopify.com/s/files/1/1672/7095/products/EHP02e1_720x.png?v=1661040011",
+        "price": 42,
+        "name": "army gear"
+    },
+    {
+        "image": "https://cdn.shopify.com/s/files/1/1672/7095/products/PADDEDVESTMAIN_720x.png?v=1669329878",
+        "price": 42,
+        "name": "vest"
+    },
+    {
+        "image": "https://cdn.shopify.com/s/files/1/1672/7095/products/CargoPantsLessWrinkle_720x.png?v=1661039983",
+        "price": 42,
+        "name": "black pants v3"
+    },
+    {
+        "image": "https://cdn.shopify.com/s/files/1/1672/7095/products/20MMFIDLOCKBELTFOLDED_720x.png?v=1663024184",
+        "price": 42,
+        "name": "army gear v2"
+    },
+    {
+        "image": "https://cdn.shopify.com/s/files/1/1672/7095/products/RDS01HIGHDETAIL_720x.png?v=1661039997",
+        "price": 42,
+        "name": "glitch beat"
+    },
+    {
+        "image": "https://cdn.shopify.com/s/files/1/1672/7095/products/EmbroShirtMainE4_720x.png?v=1663658530",
+        "price": 42,
+        "name": "black shirt"
+    },
+    {
+        "image": "https://cdn.shopify.com/s/files/1/1672/7095/products/WoolCapMain_9c673ecf-5307-4691-bf11-2867c8ca1f7b_720x.png?v=1666291207",
+        "price": 42,
+        "name": "fuzzy"
+    },
+    {
+        "image": "https://cdn.shopify.com/s/files/1/1672/7095/products/925RingNoShadow3_720x.png?v=1663025028",
+        "price": 42,
+        "name": "ring of power"
+    },
+    {
+        "image": "https://cdn.shopify.com/s/files/1/1672/7095/products/SKATEBOARDRAWEDITS_1_720x.png?v=1661039953",
+        "price": 42,
+        "name": "sk8"
+    },
+    {
+        "image": "https://cdn.shopify.com/s/files/1/1672/7095/products/DigitalPoltergeistMainE2_720x.png?v=1667081776",
+        "price": 42,
+        "name": "Clones t-shirt"
+    }
+    ]

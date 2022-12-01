@@ -1,0 +1,35 @@
+.item {
+    cursor: pointer;
+    width: 336px;
+    height: 400px;
+    margin-left: 16px;
+    text-align: center;
+    display: inline;
+    position: relative;
+  }
+  
+  .itemImage {
+    width: 336px;
+    max-height: 336px;
+    max-width: 80vw;
+  }
+  
+  .itemInfo {
+    margin-top: -20px;
+    position: absolute;
+    width: 100%;
+    right: 0px;
+  }
+  
+  .itemName {
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 13px;
+  }
+  
+  .itemPrice {
+    color: white;
+    margin-top: 5px;
+    font-size: 13px;
+  }

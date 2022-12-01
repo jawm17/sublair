@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react";
 import PaypalCheckoutButton from "../paypal/PaypalCheckoutButton";
+import { useNavigate } from "react-router-dom";
 import upBtn from "../assets/upBtn.png";
+import ShopItem from "../components/ShopItem";
+import items from "./items.json";
 import "./styles/homeStyle.css";
 
 function Home() {
+    const navigate = useNavigate();
 
     useEffect(() => {
         function preventBehavior(e) {
-            e.preventDefault(); 
+            e.preventDefault();
         };
-        
-        document.addEventListener("touchmove", preventBehavior, {passive: false});
+
+        document.addEventListener("touchmove", preventBehavior, { passive: false });
     }, []);
     let open = false;
     const product = {
@@ -31,6 +35,7 @@ function Home() {
 
     function openPage() {
         if (open === true) {
+            window.history.replaceState(null, "New Page Title", "/")
             document.getElementById("mainFooter").style.top = "calc(100vh - 76px)";
             setTimeout(() => {
                 document.getElementById("homeSlide").style.transform = "scaleY(0)";
@@ -38,6 +43,8 @@ function Home() {
             document.getElementById("upBtn").style.transform = "rotate(0deg)";
             document.getElementById("itemArea").style.opacity = "0%";
         } else {
+            window.history.replaceState(null, "New Page Title", "/shop")
+
             document.getElementById("mainFooter").style.top = "12px";
             document.getElementById("homeSlide").style.transform = "scaleY(1)";
             document.getElementById("upBtn").style.transform = "rotate(180deg)";
@@ -67,139 +74,16 @@ function Home() {
 
                 <div id="itemArea">
 
-                    <div className="item">
-                        <img src="https://cdn.shopify.com/s/files/1/1672/7095/products/DigitalPoltergeistMainE2_720x.png?v=1667081776" className="itemImage"></img>
-                        <div className="itemInfo">
-                            <div className="itemName">
-                                clones t-shirt
-                            </div>
-                            <div className="itemPrice">
-                                $125
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="item">
-                        <img src="https://cdn.shopify.com/s/files/1/1672/7095/products/PADDEDVESTMAIN_2048x.png?v=1669329878" className="itemImage"></img>
-                        <div className="itemInfo">
-                            <div className="itemName">
-                                clones t-shirt
-                            </div>
-                            <div className="itemPrice">
-                                $125
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="item">
-                        <img src="https://cdn.shopify.com/s/files/1/1672/7095/products/EHP02e1_2048x.png?v=1661040011" className="itemImage"></img>
-                        <div className="itemInfo">
-                            <div className="itemName">
-                                clones t-shirt
-                            </div>
-                            <div className="itemPrice">
-                                $125
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="item">
-                        <img src="https://cdn.shopify.com/s/files/1/1672/7095/products/DigitalPoltergeistMainE2_720x.png?v=1667081776" className="itemImage"></img>
-                        <div className="itemInfo">
-                            <div className="itemName">
-                                clones t-shirt
-                            </div>
-                            <div className="itemPrice">
-                                $125
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="item">
-                        <img src="https://cdn.shopify.com/s/files/1/1672/7095/products/DigitalPoltergeistMainE2_720x.png?v=1667081776" className="itemImage"></img>
-                        <div className="itemInfo">
-                            <div className="itemName">
-                                clones t-shirt
-                            </div>
-                            <div className="itemPrice">
-                                $125
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="item">
-                        <img src="https://cdn.shopify.com/s/files/1/1672/7095/products/DigitalPoltergeistMainE2_720x.png?v=1667081776" className="itemImage"></img>
-                        <div className="itemInfo">
-                            <div className="itemName">
-                                clones t-shirt
-                            </div>
-                            <div className="itemPrice">
-                                $125
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="item">
-                        <img src="https://cdn.shopify.com/s/files/1/1672/7095/products/DigitalPoltergeistMainE2_720x.png?v=1667081776" className="itemImage"></img>
-                        <div className="itemInfo">
-                            <div className="itemName">
-                                clones t-shirt
-                            </div>
-                            <div className="itemPrice">
-                                $125
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="item">
-                        <img src="https://cdn.shopify.com/s/files/1/1672/7095/products/DigitalPoltergeistMainE2_720x.png?v=1667081776" className="itemImage"></img>
-                        <div className="itemInfo">
-                            <div className="itemName">
-                                clones t-shirt
-                            </div>
-                            <div className="itemPrice">
-                                $125
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="item">
-                        <img src="https://cdn.shopify.com/s/files/1/1672/7095/products/DigitalPoltergeistMainE2_720x.png?v=1667081776" className="itemImage"></img>
-                        <div className="itemInfo">
-                            <div className="itemName">
-                                clones t-shirt
-                            </div>
-                            <div className="itemPrice">
-                                $125
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="item">
-                        <img src="https://cdn.shopify.com/s/files/1/1672/7095/products/DigitalPoltergeistMainE2_720x.png?v=1667081776" className="itemImage"></img>
-                        <div className="itemInfo">
-                            <div className="itemName">
-                                clones t-shirt
-                            </div>
-                            <div className="itemPrice">
-                                $125
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="item">
-                        <img src="https://cdn.shopify.com/s/files/1/1672/7095/products/DigitalPoltergeistMainE2_720x.png?v=1667081776" className="itemImage"></img>
-                        <div className="itemInfo">
-                            <div className="itemName">
-                                clones t-shirt
-                            </div>
-                            <div className="itemPrice">
-                                $125
-                            </div>
-                        </div>
-                    </div>
-
-
+                {items.map((item, index) => {
+                    return (
+                        <ShopItem
+                            image={item.image}
+                            price={item.price}
+                            name={item.name}
+                            key={index + "item"}
+                        />
+                    )
+                })}
                 </div>
             </div>
         </div>
