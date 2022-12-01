@@ -230,6 +230,13 @@
       padding-bottom: 40px;
     }
 
+    #sizeBtns {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
     #productTitle {
       display: none;
     }
