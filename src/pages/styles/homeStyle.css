@@ -1,7 +1,7 @@
 #mainFooter {
     position: fixed;
-    top: calc(100vh - 76px);
-    /* bottom: env(safe-area-inset-bottom); */
+    /* top: calc(100vh - 76px); */
+    bottom: calc(env(safe-area-inset-bottom) + 12px);
     left: 10px;
     width: calc(100vw - 20px);
     height: 64px;
@@ -10,16 +10,16 @@
     align-items: center;
     border-radius: 10px;
     z-index: 5;
-    transition: top 0.40s ease;
+    transition: bottom 0.40s ease;
   }
   
   #homeSlide {
     width: 100vw;
     position: fixed;
-    bottom: 11px;
+    bottom: calc(env(safe-area-inset-bottom) + 12px);
     left: 10px;
     width: calc(100vw - 20px);
-    height: calc(100vh - 32px);
+    height: calc(100vh - 32px - env(safe-area-inset-bottom));
     position: absolute;
     background-color: black;
     transform-origin: bottom;
