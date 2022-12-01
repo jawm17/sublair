@@ -67,7 +67,7 @@ function Home() {
                                     Glitch Mob Hoodie
                                 </div>
                                 <img src={items[0].image} id="productImage"></img>
-                                <div id="productImageBtnsFlex">
+                                {/* <div id="productImageBtnsFlex">
                                     <div id="productImageBtns">
                                         <div className="productImageBtn">
 
@@ -82,7 +82,7 @@ function Home() {
 
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                         <div id="productInfoOuter">
