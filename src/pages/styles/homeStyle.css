@@ -1,3 +1,10 @@
+#homeArea {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  cursor: pointer;
+}
+
 #mainFooter {
     position: fixed;
     /* top: calc(100vh - 76px); */
