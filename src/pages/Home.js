@@ -4,6 +4,14 @@ import upBtn from "../assets/upBtn.png";
 import "./styles/homeStyle.css";
 
 function Home() {
+
+    useEffect(() => {
+        function preventBehavior(e) {
+            e.preventDefault(); 
+        };
+        
+        document.addEventListener("touchmove", preventBehavior, {passive: false});
+    }, []);
     let open = false;
     const product = {
         description: "zectangles",
