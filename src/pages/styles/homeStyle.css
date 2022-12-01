@@ -105,7 +105,7 @@
     top: 0;
     left: 0;
     bottom: 0;
-    background: url("https://thumbs.dreamstime.com/b/black-white-texture-element-hypnosis-halftone-psychedelic-art-graphic-trendy-syntwave-background-145195143.jpg")center center;
+    background: url("../../assets/pattern.png")center center;
     width: 110vw !important;
     height: 110vh !important;
     overflow: hidden !important;
@@ -123,6 +123,7 @@
     height: 120vh;
     min-width: 100vw;
     object-fit: cover;
+    display: none;
   }
   
   .indexOuter {
