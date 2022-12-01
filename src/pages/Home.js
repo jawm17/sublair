@@ -42,17 +42,9 @@ function Home() {
     }
 
     return (
-        <div onClick={() => rippleClick()}>
+        <div>
 
             {/* <PaypalCheckoutButton product={product}/> */}
-
-
-
-            <div class="indexOuter">
-                <div className="indeximage"></div>
-            </div>
-
-
 
             <div id="mainFooter">
                 <img src="https://sublair.com/images/LOGO.png" id="logo"></img>
