@@ -1,3 +1,17 @@
+:root {
+  --app-height: 100%;
+}
+
+html,
+body {
+   padding: 0;
+   margin: 0;
+   overflow: hidden;
+   width: 100vw;
+   height: 100vh;
+   height: var(--app-height);
+}
+
 #homeArea {
   width: 100vw;
   height: 100vh;
@@ -6,27 +20,26 @@
 }
 
 #mainFooter {
-    position: fixed;
-    /* top: calc(100vh - 76px); */
-    bottom: calc(env(safe-area-inset-bottom) + 12px);
-    left: 10px;
-    width: calc(100vw - 20px);
-    height: 64px;
-    background-color: black;
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
-    z-index: 5;
-    transition: bottom 0.40s ease;
-  }
+  position: fixed;
+  top: calc(100vh - 76px);
+  left: 10px;
+  width: calc(100vw - 20px);
+  height: 64px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  z-index: 5;
+  transition: top 0.40s ease;
+}
   
   #homeSlide {
     width: 100vw;
     position: fixed;
-    bottom: calc(env(safe-area-inset-bottom) + 12px);
+    bottom: 11px;
     left: 10px;
     width: calc(100vw - 20px);
-    height: calc(100vh - 32px - env(safe-area-inset-bottom));
+    height: calc(100vh - 32px);
     position: absolute;
     background-color: black;
     transform-origin: bottom;

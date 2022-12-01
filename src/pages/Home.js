@@ -14,7 +14,14 @@ function Home() {
 
     useEffect(() => {
         document.addEventListener("touchmove", preventBehavior, { passive: false });
+        window.addEventListener('resize', appHeight);
+        appHeight();
     }, []);
+
+    const appHeight = () => {
+        const doc = document.documentElement
+        doc.style.setProperty('--app-height', `${window.innerHeight}px`)
+    }
 
     function preventBehavior(e) {
         if (document.getElementById("mainFooter").style.top !== "12px") {
@@ -34,7 +41,7 @@ function Home() {
             document.getElementById("itemArea").style.opacity = "0%";
         } else {
             // page open
-            document.getElementById("mainFooter").style.bottom = "calc(100vh - (env(safe-area-inset-bottom) + 64px))";
+            document.getElementById("mainFooter").style.top = "12px";
             document.getElementById("homeSlide").style.transform = "scaleY(1)";
             document.getElementById("upBtn").style.transform = "rotate(180deg)";
             setTimeout(() => {
