@@ -14,8 +14,6 @@ function Home() {
 
     useEffect(() => {
         document.addEventListener("touchmove", preventBehavior, { passive: false });
-        const doc = document.documentElement
-        doc.style.setProperty('--doc-height', `${window.innerHeight}px`)
     }, []);
 
     function preventBehavior(e) {
