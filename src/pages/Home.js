@@ -7,7 +7,7 @@ import items from "./items.json";
 import "./styles/homeStyle.css";
 
 function Home() {
-    const [focused, setFocused] = useState(false);
+    const [focused, setFocused] = useState(null);
     const [selectedSize, setSelectedSize] = useState("m")
     const navigate = useNavigate();
     let open = false;
@@ -25,7 +25,7 @@ function Home() {
     function openPage() {
         if (document.getElementById("mainFooter").style.top === "12px") {
             // page close
-            setFocused(false);
+            setFocused(null);
             document.getElementById("mainFooter").style.top = "calc(100vh - 76px)";
             setTimeout(() => {
                 document.getElementById("homeSlide").style.transform = "scaleY(0)";
@@ -34,7 +34,7 @@ function Home() {
             document.getElementById("itemArea").style.opacity = "0%";
         } else {
             // page open
-            document.getElementById("mainFooter").style.bottom = "calc(100vh - (env(safe-area-inset-bottom) + 76px))";
+            document.getElementById("mainFooter").style.bottom = "calc(100vh - (env(safe-area-inset-bottom) + 76))";
             document.getElementById("homeSlide").style.transform = "scaleY(1)";
             document.getElementById("upBtn").style.transform = "rotate(180deg)";
             setTimeout(() => {
@@ -52,7 +52,7 @@ function Home() {
     return (
         <div>
             <div id="homeArea">
-                
+
             </div>
             <div id="mainFooter">
                 <img src="https://sublair.com/images/LOGO.png" id="logo"></img>
@@ -66,14 +66,14 @@ function Home() {
 
             <div id="homeSlide">
 
-                {focused ?
+                {focused !== null ?
                     <div id="itemPage">
                         <div id="productImageArea">
                             <div>
                                 <div id="productTitle2">
-                                    Glitch Mob Hoodie
+                                    {items[focused].description}
                                 </div>
-                                <img src={items[0].image} id="productImage"></img>
+                                <img src={items[focused].image} id="productImage"></img>
                                 {/* <div id="productImageBtnsFlex">
                                     <div id="productImageBtns">
                                         <div className="productImageBtn">
@@ -95,7 +95,7 @@ function Home() {
                         <div id="productInfoOuter">
                             <div id="productInfo">
                                 <div id="productTitle">
-                                    Glitch Mob Hoodie
+                                    {items[focused].description}
                                 </div>
                                 <div id="sizeBtns">
                                     <div className="sizeBtn" onClick={() => setSelectedSize("s")} id={selectedSize === "s" ? "selectedSize" : null}>
@@ -115,7 +115,7 @@ function Home() {
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. sit amet. Pellentesque suscipit scelerisque lacus, id suscipit mi auctor et. Aenean posuere porta dictum. In eget euismod mauris. Suspendisse potenti. Fusce pellentesque, urna nec aliquam consectetur, ex nisl bibendum mi, finibus consequat dui nunc id diam.
                                 </div>
                                 <div id="paypalBtnArea">
-                                    <PaypalCheckoutButton product={items[0]} />
+                                    <PaypalCheckoutButton product={items[focused]} />
                                 </div>
                             </div>
                         </div>
@@ -126,7 +126,7 @@ function Home() {
                         {items.map((item, index) => {
                             return (
                                 <ShopItem
-                                    openItem={() => setFocused(true)}
+                                    openItem={() => setFocused(index)}
                                     image={item.image}
                                     price={item.price}
                                     description={item.description}
