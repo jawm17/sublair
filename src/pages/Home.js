@@ -17,7 +17,7 @@ function Home() {
     }, []);
 
     function preventBehavior(e) {
-        if (document.getElementById("mainFooter").style.top === "12px") {
+        if (document.getElementById("mainFooter").style.top !== "12px") {
             e.preventDefault();
         }
     };
@@ -40,6 +40,12 @@ function Home() {
         }
     }
 
+    useEffect(() => {
+        if(focused) {
+          
+        }
+    }, [focused]);
+
     return (
         <div>
 
@@ -54,59 +60,59 @@ function Home() {
             <div id="homeSlide">
 
                 {focused ?
-                               <div id="itemPage">
-                               <div id="productImageArea">
-                                   <div>
-                                       <div id="productTitle2">
-                                           Glitch Mob Hoodie
-                                       </div>
-                                       <img src={items[0].image} id="productImage"></img>
-                                       <div id="productImageBtnsFlex">
-                                           <div id="productImageBtns">
-                                               <div className="productImageBtn">
-           
-                                               </div>
-                                               <div className="productImageBtn">
-           
-                                               </div>
-                                               <div className="productImageBtn">
-           
-                                               </div>
-                                               <div className="productImageBtn">
-           
-                                               </div>
-                                           </div>
-                                       </div>
-                                   </div>
-                               </div>
-                               <div id="productInfoOuter">
-                                   <div id="productInfo">
-                                       <div id="productTitle">
-                                           Glitch Mob Hoodie
-                                       </div>
-                                       <div id="sizeBtns">
-                                           <div className="sizeBtn" onClick={() => setSelectedSize("s")} id={selectedSize === "s" ? "selectedSize" : null}>
-                                               S
-                                           </div>
-                                           <div className="sizeBtn" onClick={() => setSelectedSize("m")} id={selectedSize === "m" ? "selectedSize" : null}>
-                                               M
-                                           </div>
-                                           <div className="sizeBtn" onClick={() => setSelectedSize("l")} id={selectedSize === "l" ? "selectedSize" : null}>
-                                               L
-                                           </div>
-                                           <div className="sizeBtn" onClick={() => setSelectedSize("xl")} id={selectedSize === "xl" ? "selectedSize" : null}>
-                                               XL
-                                           </div>
-                                       </div>
-                                       <div id="productDescription">
-                                           Lorem ipsum dolor sit amet, consectetur adipiscing elit. sit amet. Pellentesque suscipit scelerisque lacus, id suscipit mi auctor et. Aenean posuere porta dictum. In eget euismod mauris. Suspendisse potenti. Fusce pellentesque, urna nec aliquam consectetur, ex nisl bibendum mi, finibus consequat dui nunc id diam.
-                                       </div>
-                                       <div id="paypalBtnArea">
-                                           <PaypalCheckoutButton product={items[0]} />
-                                       </div>
-                                   </div>
-                               </div>
-                           </div>
+                    <div id="itemPage">
+                        <div id="productImageArea">
+                            <div>
+                                <div id="productTitle2">
+                                    Glitch Mob Hoodie
+                                </div>
+                                <img src={items[0].image} id="productImage"></img>
+                                <div id="productImageBtnsFlex">
+                                    <div id="productImageBtns">
+                                        <div className="productImageBtn">
+
+                                        </div>
+                                        <div className="productImageBtn">
+
+                                        </div>
+                                        <div className="productImageBtn">
+
+                                        </div>
+                                        <div className="productImageBtn">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="productInfoOuter">
+                            <div id="productInfo">
+                                <div id="productTitle">
+                                    Glitch Mob Hoodie
+                                </div>
+                                <div id="sizeBtns">
+                                    <div className="sizeBtn" onClick={() => setSelectedSize("s")} id={selectedSize === "s" ? "selectedSize" : null}>
+                                        S
+                                    </div>
+                                    <div className="sizeBtn" onClick={() => setSelectedSize("m")} id={selectedSize === "m" ? "selectedSize" : null}>
+                                        M
+                                    </div>
+                                    <div className="sizeBtn" onClick={() => setSelectedSize("l")} id={selectedSize === "l" ? "selectedSize" : null}>
+                                        L
+                                    </div>
+                                    <div className="sizeBtn" onClick={() => setSelectedSize("xl")} id={selectedSize === "xl" ? "selectedSize" : null}>
+                                        XL
+                                    </div>
+                                </div>
+                                <div id="productDescription">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. sit amet. Pellentesque suscipit scelerisque lacus, id suscipit mi auctor et. Aenean posuere porta dictum. In eget euismod mauris. Suspendisse potenti. Fusce pellentesque, urna nec aliquam consectetur, ex nisl bibendum mi, finibus consequat dui nunc id diam.
+                                </div>
+                                <div id="paypalBtnArea">
+                                    <PaypalCheckoutButton product={items[0]} />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     :
 
                     <div id="itemArea">
