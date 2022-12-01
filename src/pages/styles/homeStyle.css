@@ -39,7 +39,7 @@ body {
     bottom: 11px;
     left: 10px;
     width: calc(100vw - 20px);
-    height: calc(100vh - 32px);
+    height: calc(var(--app-height) - 32px);
     position: absolute;
     background-color: black;
     transform-origin: bottom;

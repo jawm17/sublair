@@ -33,7 +33,7 @@ function Home() {
         if (document.getElementById("mainFooter").style.top === "12px") {
             // page close
             setFocused(null);
-            document.getElementById("mainFooter").style.top = "calc(100vh - 76px)";
+            document.getElementById("mainFooter").style.top = "calc(var(--app-height) - 76px)";
             setTimeout(() => {
                 document.getElementById("homeSlide").style.transform = "scaleY(0)";
             }, 40);
