@@ -34,7 +34,7 @@ function Home() {
             document.getElementById("itemArea").style.opacity = "0%";
         } else {
             // page open
-            document.getElementById("mainFooter").style.top = "12px";
+            document.getElementById("mainFooter").style.bottom = "calc(100vh - 12px - env(safe-area-inset-bottom))";
             document.getElementById("homeSlide").style.transform = "scaleY(1)";
             document.getElementById("upBtn").style.transform = "rotate(180deg)";
             setTimeout(() => {
