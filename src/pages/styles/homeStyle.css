@@ -105,7 +105,7 @@
     top: 0;
     left: 0;
     bottom: 0;
-    background: url(https://static.vecteezy.com/system/resources/previews/001/330/739/original/black-and-white-interlocking-geometric-pattern-free-vector.png)center center;
+    background: url("../../assets/pattern.png")center center;
     width: 110vw !important;
     height: 110vh !important;
     overflow: hidden !important;
