@@ -23,7 +23,7 @@ body {
   position: fixed;
   top: calc(100vh - 76px);
   left: 10px;
-  width: calc(100vw - 20px);
+  width: calc(var(--app-height) - 20px);
   height: 64px;
   background-color: black;
   display: flex;
