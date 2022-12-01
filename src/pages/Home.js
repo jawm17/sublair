@@ -8,30 +8,17 @@ import "./styles/homeStyle.css";
 
 function Home() {
     const navigate = useNavigate();
+    let open = false;
 
     useEffect(() => {
-        function preventBehavior(e) {
-            e.preventDefault();
-        };
-
         document.addEventListener("touchmove", preventBehavior, { passive: false });
     }, []);
-    let open = false;
-    const product = {
-        description: "zectangles",
-        price: 19
-    }
 
-    function rippleClick(e) {
-        // window.test(e.clientX + 75, e.clientY + 50);
-        window.test((window.innerWidth / 2) + 75, (window.innerHeight / 2) + 50);
-    }
-
-    // function openPage(state) {
-    //   document.getElementById("bg").style.transform = "scaleY(1)";
-    //   document.getElementById("mainFooter").style.top = "15px";
-    //   rotateBtn();
-    // }
+    function preventBehavior(e) {
+        if(!open) {
+            e.preventDefault();
+        }
+    };
 
     function openPage() {
         if (open === true) {
@@ -44,7 +31,6 @@ function Home() {
             document.getElementById("itemArea").style.opacity = "0%";
         } else {
             window.history.replaceState(null, "New Page Title", "/shop")
-
             document.getElementById("mainFooter").style.top = "12px";
             document.getElementById("homeSlide").style.transform = "scaleY(1)";
             document.getElementById("upBtn").style.transform = "rotate(180deg)";
@@ -80,10 +66,14 @@ function Home() {
                             image={item.image}
                             price={item.price}
                             name={item.name}
+                            index={index}
                             key={index + "item"}
                         />
                     )
                 })}
+                <div id="block">
+
+                </div>
                 </div>
             </div>
         </div>
