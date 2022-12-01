@@ -21,9 +21,9 @@ body {
 
 #mainFooter {
   position: fixed;
-  top: calc(100vh - 76px);
+  top: calc(var(--app-height) - 76px);
   left: 10px;
-  width: calc(var(--app-height) - 20px);
+  width: calc(100vw - 20px);
   height: 64px;
   background-color: black;
   display: flex;
