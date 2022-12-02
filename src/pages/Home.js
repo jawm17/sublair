@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import PaypalCheckoutButton from "../paypal/PaypalCheckoutButton";
-import { useNavigate } from "react-router-dom";
 import upBtn from "../assets/upload.png";
 import ShopItem from "../components/ShopItem";
 import items from "./items.json";
@@ -9,8 +8,6 @@ import "./styles/homeStyle.css";
 function Home() {
     const [focused, setFocused] = useState(null);
     const [selectedSize, setSelectedSize] = useState("m")
-    const navigate = useNavigate();
-    let open = false;
 
     useEffect(() => {
         document.addEventListener("touchmove", preventBehavior, { passive: false });
@@ -19,7 +16,6 @@ function Home() {
     }, []);
 
     const appHeight = () => {
-        console.log("woah")
         const doc = document.documentElement
         doc.style.setProperty('--app-height', `${window.innerHeight}px`)
     }
@@ -63,12 +59,12 @@ function Home() {
 
             </div>
             <div id="mainFooter">
-                <img src="https://sublair.com/images/LOGO.png" id="logo"></img>
+                <img alt="logo" src="https://sublair.com/images/LOGO.png" id="logo"></img>
                 <div id="footTitle">
                     SUBLAIR
                 </div>
                 <div id="upBtnArea" onClick={() => openPage()}>
-                    <img src={upBtn} id="upBtn"></img>
+                    <img alt="up arrow" src={upBtn} id="upBtn"></img>
                 </div>
             </div>
 
@@ -81,7 +77,7 @@ function Home() {
                                 <div id="productTitle2">
                                     {items[focused].description}
                                 </div>
-                                <img src={items[focused].image} id="productImage"></img>
+                                <img alt="product" src={items[focused].image} id="productImage"></img>
                                 {/* <div id="productImageBtnsFlex">
                                     <div id="productImageBtns">
                                         <div className="productImageBtn">
