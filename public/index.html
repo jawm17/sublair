@@ -52,13 +52,25 @@
   <script src="./jquery.ripples.js"></script>
   <script>
     $(document).ready(function () {
-      $('body').ripples({
-        resolution: 350,
-        dropRadius: 120,
-        perturbance: 0.105,
-        interactive: true
-      });
+      if ($(window).width() < 550) {
+        $('body').ripples({
+          resolution: 512,
+          dropRadius: 50,
+          perturbance: 0.04,
+          interactive: true
+        });
+      } else {
+        $('body').ripples({
+          resolution: 350,
+          dropRadius: 120,
+          perturbance: 0.105,
+          interactive: true
+        });
+      }
     });
+  </script>
+  <script>
+    window.addEventListener('resize', appHeight);
   </script>
 </body>
 
