@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import PaypalCheckoutButton from "../paypal/PaypalCheckoutButton";
 import { useNavigate } from "react-router-dom";
-import upBtn from "../assets/upBtn.png";
+import upBtn from "../assets/upload.png";
 import ShopItem from "../components/ShopItem";
 import items from "./items.json";
 import "./styles/homeStyle.css";
