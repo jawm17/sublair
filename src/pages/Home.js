@@ -19,6 +19,7 @@ function Home() {
     }, []);
 
     const appHeight = () => {
+        console.log("woah")
         const doc = document.documentElement
         doc.style.setProperty('--app-height', `${window.innerHeight}px`)
     }
