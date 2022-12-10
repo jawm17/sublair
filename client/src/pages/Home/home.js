@@ -11,15 +11,8 @@ function Home() {
 
     useEffect(() => {
         document.addEventListener("touchmove", preventBehavior, { passive: false });
-        window.addEventListener('resize', appHeight);
-        appHeight();
         window.ripple();
     }, []);
-
-    const appHeight = () => {
-        const doc = document.documentElement
-        doc.style.setProperty('--app-height', `${window.innerHeight}px`)
-    }
 
     function preventBehavior(e) {
         if (document.getElementById("mainFooter").style.top !== "12px") {

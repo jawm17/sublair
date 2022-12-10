@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import history from './history';
 import ScrollToTop from "./ScrollToTop";
 import PrivateRoute from './hocs/PrivateRoute';
@@ -13,9 +13,20 @@ import Register from "./pages/UserAuth/Register";
 import Home from "./pages/Home/home";
 import PayPalMiddle from './pages/Home/PayPalMiddle';
 import Account from "./pages/Account/account";
+import AddItem from './pages/addItem/AddItem';
 
 
 function App() {
+  useEffect(() => {
+    appHeight();
+    window.addEventListener('resize', appHeight);
+  }, [])
+  
+  function appHeight() {
+    const doc = document.documentElement
+    doc.style.setProperty('--app-height', `${window.innerHeight}px`)
+  }
+  
   return (
     <Router history={history}>
       <ScrollToTop />
@@ -23,7 +34,8 @@ function App() {
         <UnPrivateRoute path="/login" component={Login} />
         <UnPrivateRoute path="/register" component={Register} />
         <Route exact path="/" component={PayPalMiddle} />
-        <PrivateRoute path="/admin" component={Account} />
+        <PrivateRoute exact path="/admin" component={Account} />
+        <PrivateRoute path="/admin/add-item" component={AddItem} />
         <Route path="/" component={NoMatchPage} />
       </Switch>
     </Router>

@@ -3,7 +3,7 @@ import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 import "./accountStyle.css";
 
-export default function Account() {
+export default function Account(props) {
     const { setIsAuthenticated, setUser } = useContext(AuthContext);
     const [username, setUsername] = useState("");
 
@@ -23,7 +23,7 @@ export default function Account() {
     async function logOutHandler() {
         try {
             const res = await axios.get("/user/logout");
-            if(res.data.success) {
+            if (res.data.success) {
                 setUser(res.data.user);
                 setIsAuthenticated(false);
             }
@@ -32,12 +32,161 @@ export default function Account() {
         }
     }
 
+    function scrollToOrders(id) {
+        let pageArea = document.getElementById(id);
+        pageArea.scrollIntoView({ behavior: "smooth" });
+        
+    }
+
     return (
         <div>
-            {username}
+            <div id="accountFlex">
+                <div id="admin">
+                    <div id="adminArea">
+                        <div id="dashHeader">
+                            <div id="dashTitle">
+                                Dashboard
+                            </div>
+                            <div id="dashBtns">
+                                <div className="dashButton" onClick={() => props.history.push('/admin/add-item')}>
+                                    add item
+                                </div>
+                                <div className="dashButton" onClick={() => scrollToOrders("listTitle")}>
+                                    listings
+                                </div>
+                                <div className="dashButton" onClick={() => scrollToOrders("ordersTitle")}>
+                                    orders
+                                </div>
+                            </div>
+                            <div id="horLine">
+                            </div>
+                        </div>
+                        <div id="adminBody">
+                            <div id="quickStats">
+                                <div id="totalSales">
+                                    Total Sales: $14,000
+                                </div>
+                                <div id="24hrSales">
+                                    24HR sales: $278
+                                </div>
+                            </div>
+                            <div className="subTitle" id="listTitle">
+                                Listings
+                            </div>
+                            <div id="horLine">
+
+                            </div>
+                            <div id="listArea">
+                                <div className="listItem">
+
+                                </div>
+                                <div className="listItem">
+
+                                </div>
+                                <div className="listItem">
+
+                                </div>
+                                <div className="listItem">
+
+                                </div>
+                                <div className="listItem">
+
+                                </div>
+                                <div className="listItem">
+
+                                </div>
+                                <div className="listItem">
+
+                                </div>
+                                <div className="listItem">
+
+                                </div>
+                                <div className="listItem">
+
+                                </div>
+                            </div>
+                            <div className="subTitle" id="ordersTitle">
+                                Orders
+                            </div>
+                            <div id="horLine">
+
+                            </div>
+                            <div className="orderItem">
+                                <div className="leftOrderStat">
+                                    t-shirt
+                                </div>
+                                <div>
+                                    $124
+                                </div>
+                                <div>
+                                    12/18/22 9:09AM
+                                </div>
+                                <div>
+                                    JAMES CREEPY
+                                </div>
+                                <div className="rightOrderStat">
+                                    dfakj-AP90
+                                </div>
+                            </div>
+                            <div className="orderItem">
+                                <div className="leftOrderStat">
+                                    t-shirt
+                                </div>
+                                <div>
+                                    $124
+                                </div>
+                                <div>
+                                    12/18/22 9:09AM
+                                </div>
+                                <div>
+                                    JAMES CREEPY
+                                </div>
+                                <div className="rightOrderStat">
+                                    dfakj-AP90
+                                </div>
+                            </div>
+                            <div className="orderItem">
+                                <div className="leftOrderStat">
+                                    t-shirt
+                                </div>
+                                <div>
+                                    $124
+                                </div>
+                                <div>
+                                    12/18/22 9:09AM
+                                </div>
+                                <div>
+                                    JAMES CREEPY
+                                </div>
+                                <div className="rightOrderStat">
+                                    dfakj-AP90
+                                </div>
+                            </div>
+                            <div className="orderItem">
+                                <div className="leftOrderStat">
+                                    t-shirt
+                                </div>
+                                <div>
+                                    $124
+                                </div>
+                                <div>
+                                    12/18/22 9:09AM
+                                </div>
+                                <div>
+                                    JAMES CREEPY
+                                </div>
+                                <div className="rightOrderStat">
+                                    dfakj-AP90
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* {username}
             <button onClick={() => logOutHandler()}>
                 Log Out
-            </button>
+            </button> */}
         </div>
     );
 }
