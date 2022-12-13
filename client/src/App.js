@@ -14,6 +14,7 @@ import Home from "./pages/Home/home";
 import PayPalMiddle from './pages/Home/PayPalMiddle';
 import Account from "./pages/Account/account";
 import AddItem from './pages/addItem/AddItem';
+import EditItem from './pages/editItem/EditItem';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
         <Route exact path="/" component={PayPalMiddle} />
         <PrivateRoute exact path="/admin" component={Account} />
         <PrivateRoute path="/admin/add-item" component={AddItem} />
+        <PrivateRoute path="/admin/item/:id" component={EditItem} />
         <Route path="/" component={NoMatchPage} />
       </Switch>
     </Router>

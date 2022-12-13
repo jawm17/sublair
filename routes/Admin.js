@@ -29,4 +29,16 @@ adminRouter.get('/get-inventory', passport.authenticate('jwt', { session: false 
     });
 });
 
+// get all inventory
+adminRouter.get('/item-data/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+    Item.findById({ _id: req.params.id }).exec((err, item) => {
+        if (err) {
+            res.status(500).json({ message });
+        }
+        else {
+            res.status(200).json({ item });
+        }
+    });
+});
+
 module.exports = adminRouter;
