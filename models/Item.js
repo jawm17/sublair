@@ -16,6 +16,10 @@ const ItemSchema = new mongoose.Schema({
     images : {
         type : Array,
         required : true
+    },
+    thumbnail: {
+        type: Number,
+        required: true
     }
 });
 

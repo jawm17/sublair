@@ -1,0 +1,132 @@
+#adminArea {
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+#createListingFlex {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#createListing {
+    margin-top: 20px;
+    width: 97%;
+    max-width: 400px;
+}
+
+#add-itemBtns {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+#btnGray {
+    background-color: gray;
+}
+
+.inputTitle {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.inputArea {
+    margin-bottom: 20px;
+    margin-top: 15px;
+    position: relative;
+}
+
+.listingInput {
+    border-top-style: groove;
+    border-right-style: groove;
+    border-left-style: groove;
+    border-bottom-style: groove;
+    font-size: 18px;
+    width: 100%;
+}
+
+input {
+    outline: none;
+}
+
+#imageInput {
+    width: calc(100% - 40px);
+}
+
+#addImage {
+    float: right;
+    width: 90px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    width: 40px;
+    right: 0px;
+}
+
+#imagesArea { 
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.hoverImage:hover {
+    background-color: gray;
+    cursor: pointer;
+}
+
+.hoverImage {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+}
+
+#thumbnailImage {
+    border: solid 1px black;
+}
+
+#removeImage {
+    position: absolute;
+    display: none;
+}
+
+.thumbLabel {
+    position: absolute;
+    top: -20px;
+    left: calc(50% - 35px);
+}
+
+.thumbNum {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+.imageSample {
+    width: 200px;
+    display: inline-block;
+}
+
+.trashImage {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+}
+
+#addImageMessage {
+    color: gray;
+}

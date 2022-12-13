@@ -1,14 +1,17 @@
 import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import DashItem from "../../components/DashItem";
 import axios from "axios";
 import "./accountStyle.css";
 
 export default function Account(props) {
     const { setIsAuthenticated, setUser } = useContext(AuthContext);
     const [username, setUsername] = useState("");
+    const [inventory, setInventory] = useState([]);
 
     useEffect(() => {
         getUserInfo();
+        getInventory();
     }, []);
 
     async function getUserInfo() {
@@ -17,6 +20,18 @@ export default function Account(props) {
             setUsername(res.data.username);
         } catch (err) {
             console.log(err);
+        }
+    }
+
+    async function getInventory() {
+        try {
+            const data = await axios.get("/admin/get-inventory");
+            console.log(data);
+            if (data.data?.document) {
+                setInventory(data.data.document);
+            }
+        } catch (error) {
+            console.log(error);
         }
     }
 
@@ -35,7 +50,7 @@ export default function Account(props) {
     function scrollToOrders(id) {
         let pageArea = document.getElementById(id);
         pageArea.scrollIntoView({ behavior: "smooth" });
-        
+
     }
 
     return (
@@ -69,6 +84,9 @@ export default function Account(props) {
                                 <div id="24hrSales">
                                     24HR sales: $278
                                 </div>
+                                <div id="24hrSales">
+                                    24HR SITE visitors: 84
+                                </div>
                             </div>
                             <div className="subTitle" id="listTitle">
                                 Listings
@@ -77,33 +95,16 @@ export default function Account(props) {
 
                             </div>
                             <div id="listArea">
-                                <div className="listItem">
-
-                                </div>
-                                <div className="listItem">
-
-                                </div>
-                                <div className="listItem">
-
-                                </div>
-                                <div className="listItem">
-
-                                </div>
-                                <div className="listItem">
-
-                                </div>
-                                <div className="listItem">
-
-                                </div>
-                                <div className="listItem">
-
-                                </div>
-                                <div className="listItem">
-
-                                </div>
-                                <div className="listItem">
-
-                                </div>
+                                {inventory.map((item) => {
+                                    return <DashItem
+                                        thumb={item.images[item.thumbnail]}
+                                        price={item.price}
+                                        title={item.title}
+                                        history={props.history}
+                                        id={item._id}
+                                        key={item._id}
+                                    />
+                                })}
                             </div>
                             <div className="subTitle" id="ordersTitle">
                                 Orders
