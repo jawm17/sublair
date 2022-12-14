@@ -1,14 +1,10 @@
 import React, { useState } from "react";
 import { PayPalButtons } from "@paypal/react-paypal-js";
+import axios from "axios";
 const PaypalCheckoutButton = (props) => {
     const { product } = props;
-
     const [paidFor, setPaidFor] = useState(false);
     const [error, setError] = useState(null);
-
-    const handleApprove = (orderId) => {
-        setPaidFor(true);
-    }
 
     if (paidFor) {
         // alert("success");
@@ -16,6 +12,25 @@ const PaypalCheckoutButton = (props) => {
 
     if (error) {
         alert(error);
+    }
+
+    const postPurchase = async (order) => {
+        setPaidFor(true);
+        console.log(order);
+        try {
+            const res = await axios.post("/item/new-order", {
+                amountPayed: product.price,
+                payerName: order.payer.name.given_name + " " + order.payer.name.surname,
+                payerEmail: order.payer.email_address,
+                payerId: order.payer.payer_id,
+                orderId: order.id,
+                itemId: "asdf",
+                createdAt: order.create_time
+            });
+            console.log(res);
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return <PayPalButtons
@@ -27,7 +42,7 @@ const PaypalCheckoutButton = (props) => {
         onClick={(data, actions) => {
             const alreadyPurchased = false;
 
-            if(alreadyPurchased) {
+            if (alreadyPurchased) {
                 setError("you already bought this item");
                 return actions.reject();
             } else {
@@ -38,7 +53,7 @@ const PaypalCheckoutButton = (props) => {
             return actions.order.create({
                 purchase_units: [
                     {
-                        description: product.description,
+                        description: product.title,
                         amount: {
                             value: product.price
                         }
@@ -48,9 +63,7 @@ const PaypalCheckoutButton = (props) => {
         }}
         onApprove={async (data, actions) => {
             const order = await actions.order.capture();
-            console.log("order", order);
-
-            handleApprove(data.orderID);
+            postPurchase(order);
         }}
         onCancel={() => {
 

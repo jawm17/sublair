@@ -1,15 +1,18 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "./styles/shopItemStyle.css";
 
 export default function ShopItem(props) {
 
-    return (
+    useEffect(() => {
+        console.log("props.price")
+    }, []);
 
+    return (
         <div className="item" onClick={() => props.openItem()}>
             <img src={props.image} className="itemImage"></img>
             <div className="itemInfo">
                 <div className="itemName">
-                    {props.description}
+                    {props.title}
                 </div>
                 <div className="itemPrice">
                     ${props.price}

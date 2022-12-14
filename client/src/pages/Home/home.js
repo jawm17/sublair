@@ -1,18 +1,35 @@
 import React, { useEffect, useState } from "react";
-import PaypalCheckoutButton from "../../paypal/PaypalCheckoutButton";
 import upBtn from "../../assets/upload.png";
 import ShopItem from "../../components/ShopItem";
-import items from "../../assets/items.json";
+import { useHistory } from "react-router-dom";
+import logo from "../../assets/LOGO.png"
+import axios from "axios";
 import "./homeStyle.css";
 
 function Home() {
+    const history = useHistory();
     const [focused, setFocused] = useState(null);
-    const [selectedSize, setSelectedSize] = useState("m");
+    const [items, setItems] = useState([]);
 
     useEffect(() => {
+        getItems();
+        try {
+            window.ripple(); 
+        } catch (error) {
+
+        }
         document.addEventListener("touchmove", preventBehavior, { passive: false });
-        window.ripple();
     }, []);
+
+    async function getItems() {
+        try {
+            const data = await axios.get("/item/get-listings");
+            console.log(data);
+            setItems(data.data.document);
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     function preventBehavior(e) {
         if (document.getElementById("mainFooter").style.top !== "12px") {
@@ -40,6 +57,11 @@ function Home() {
         }
     }
 
+    function gotTo() {
+        history.push("/item/9")
+    }
+
+
     useEffect(() => {
         if (focused) {
 
@@ -52,7 +74,7 @@ function Home() {
 
             </div>
             <div id="mainFooter">
-                <img alt="logo" src="https://sublair.com/images/LOGO.png" id="logo"></img>
+                <img alt="logo" src={logo} id="logo"></img>
                 <div id="footTitle">
                     SUBLAIR
                 </div>
@@ -62,81 +84,23 @@ function Home() {
             </div>
 
             <div id="homeSlide">
+                <div id="itemArea">
+                    {items.map((item, index) => {
+                        return (
+                            <ShopItem
+                                openItem={() => history.push("/item/" + item._id)}
+                                image={item.images[item.thumbnail]}
+                                price={item.price}
+                                title={item.title}
+                                index={index}
+                                key={index + "item"}
+                            />
+                        )
+                    })}
+                    <div id="block">
 
-                {focused !== null ?
-                    <div id="itemPage">
-                        <div id="productImageArea">
-                            <div>
-                                <div id="productTitle2">
-                                    {items[focused].description}
-                                </div>
-                                <img alt="product" src={items[focused].image} id="productImage"></img>
-                                {/* <div id="productImageBtnsFlex">
-                                    <div id="productImageBtns">
-                                        <div className="productImageBtn">
-
-                                        </div>
-                                        <div className="productImageBtn">
-
-                                        </div>
-                                        <div className="productImageBtn">
-
-                                        </div>
-                                        <div className="productImageBtn">
-
-                                        </div>
-                                    </div>
-                                </div> */}
-                            </div>
-                        </div>
-                        <div id="productInfoOuter">
-                            <div id="productInfo">
-                                <div id="productTitle">
-                                    {items[focused].description}
-                                </div>
-                                <div id="sizeBtns">
-                                    <div className="sizeBtn" onClick={() => setSelectedSize("s")} id={selectedSize === "s" ? "selectedSize" : null}>
-                                        S
-                                    </div>
-                                    <div className="sizeBtn" onClick={() => setSelectedSize("m")} id={selectedSize === "m" ? "selectedSize" : null}>
-                                        M
-                                    </div>
-                                    <div className="sizeBtn" onClick={() => setSelectedSize("l")} id={selectedSize === "l" ? "selectedSize" : null}>
-                                        L
-                                    </div>
-                                    <div className="sizeBtn" onClick={() => setSelectedSize("xl")} id={selectedSize === "xl" ? "selectedSize" : null}>
-                                        XL
-                                    </div>
-                                </div>
-                                <div id="productDescription">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. sit amet. Pellentesque suscipit scelerisque lacus, id suscipit mi auctor et. Aenean posuere porta dictum. In eget euismod mauris. Suspendisse potenti. Fusce pellentesque, urna nec aliquam consectetur, ex nisl bibendum mi, finibus consequat dui nunc id diam.
-                                </div>
-                                <div id="paypalBtnArea">
-                                    <PaypalCheckoutButton product={items[focused]} />
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                    :
-
-                    <div id="itemArea">
-                        {items.map((item, index) => {
-                            return (
-                                <ShopItem
-                                    openItem={() => setFocused(index)}
-                                    image={item.image}
-                                    price={item.price}
-                                    description={item.description}
-                                    index={index}
-                                    key={index + "item"}
-                                />
-                            )
-                        })}
-                        <div id="block">
-
-                        </div>
-                    </div>
-                }
+                </div>
             </div>
         </div>
     );
