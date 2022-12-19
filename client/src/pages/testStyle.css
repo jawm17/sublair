@@ -1,0 +1,45 @@
+#testBg {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+}
+
+body {
+    cursor: none;
+}
+
+#canvas {
+    position: fixed;
+    top: 0px;
+    width: 500px;
+    height: 400px;
+    display: none;
+}
+
+#circle {
+    position: fixed;
+    top: 0px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    transition: transform 0.8s ease;
+    /* transform: scale(50); */
+}
+
+/* #canvasFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    cursor: pointer;
+} */
+
+#stars {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../assets/cart.png");
+    z-index: 50;
+}

@@ -15,6 +15,7 @@ import Account from "./pages/Account/account";
 import AddItem from './pages/addItem/AddItem';
 import EditItem from './pages/editItem/EditItem';
 import PayPalMiddle2 from './pages/itemPage/PayPalMiddle2';
+import TestHome from './pages/TestHome';
 
 function App() {
   useEffect(() => {
@@ -34,6 +35,7 @@ function App() {
         <UnPrivateRoute path="/login" component={Login} />
         <UnPrivateRoute path="/register" component={Register} />
         <Route exact path="/" component={Home} />
+        <Route exact path="/test" component={TestHome} />
         <Route exact path="/item/:id" component={PayPalMiddle2} />
         <PrivateRoute exact path="/admin" component={Account} />
         <PrivateRoute path="/admin/add-item" component={AddItem} />
