@@ -1,8 +1,14 @@
 import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import * as THREE from 'three';
+import sound from "../assets/giphy.gif";
+import facebook from "../assets/facebook.png";
+import insta from "../assets/insta.png";
+import twitter from "../assets/twitter.png";
 import "./testStyle.css";
 
 export default function TestHome() {
+    const history = useHistory();
     var renderer, scene, camera, mesh;
 
     useEffect(() => {
@@ -19,7 +25,7 @@ export default function TestHome() {
         scene = new THREE.Scene();
         camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
         camera.position.set(0, 0, 150);
-        var geometry = new THREE.SphereGeometry(80, 500, 500);
+        var geometry = new THREE.SphereGeometry(80, 15, 15);
         var material = new THREE.MeshBasicMaterial({
             color: 0xffffff,
             wireframe: true
@@ -31,29 +37,39 @@ export default function TestHome() {
         scene.add(light);
 
         document.addEventListener('mousemove', move);
-        document.addEventListener('mousedown', function(event) { 
-            // simulating hold event
-            setTimeout(function() {
-              touch();
-            }, 0);
-          });
+        autoMove();
     }
 
     function move(e) {
-
-
-
-        document.getElementById("circle").style.top = e.clientY - 20 +  "px";
-        document.getElementById("circle").style.left = e.clientX - 20 + "px";
+        mesh.rotation.x = e.pageY * 0.005;
+        mesh.rotation.y = e.pageX * 0.005;
+        renderer.render(scene, camera);
     }
 
-    function touch(e) {
-        document.addEventListener("mouseup", function() {
-            console.log("up");
-            document.getElementById("circle").style.transform = "scale(1)";
-        })
-        document.getElementById("circle").style.transform = "scale(100)";
-        console.log("down")
+    function autoMove() {
+        let pos = 0
+        setInterval(() => {
+            pos = mesh.rotation.y
+            mesh.rotation.y = pos + 0.5 * 0.005;
+            renderer.render(scene, camera);
+            console.log(mesh.rotation.x);
+        }, 10);
+    }
+
+    function openMenu() {
+        if (document.getElementById("sidebar").style.left === "0px") {
+            document.getElementById("sidebar").style.left = "100vw";
+            document.getElementById("sidebarTab").style.opacity = "100"
+            document.getElementById("siteTitle").style.color = "white";
+            document.getElementById("about").style.color = "white";
+            document.getElementById("contact").style.color = "white";
+        } else {
+            document.getElementById("sidebar").style.left = "0px"
+            document.getElementById("sidebarTab").style.opacity = "0"
+            document.getElementById("siteTitle").style.color = "black";
+            document.getElementById("about").style.color = "black";
+            document.getElementById("contact").style.color = "black";
+        }
     }
 
     return (
@@ -61,9 +77,41 @@ export default function TestHome() {
             <div id="stars">
 
             </div>
+            <div id="siteTitle" className="navText" onClick={() => openMenu()}>
+                sublair
+            </div>
+            <div id="about" className="navText">
+                about
+            </div>
+            <div id="contact" className="navText">
+                contact
+            </div>
+            <img src={sound} id="sound"></img>
+            <div id="socials">
+                <img className="socialIcon" src={insta}></img>
+                <img className="socialIcon" src={facebook}></img>
+                <img className="socialIcon" src={twitter}></img>
+            </div>
+            <div id="sidebar">
+                <div id="sidebarTab" onClick={() => openMenu()}>
+                    <div>
+                        <div>
+                            s
+                        </div>
+                        <div>
+                            h
+                        </div>
+                        <div>
+                            o
+                        </div>
+                        <div>
+                            p
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div id="canvasFlex">
-                <div id="circle"></div>
-                <canvas id="canvas"></canvas>
+                <canvas id="canvas" width="500" height="400"></canvas>
             </div>
         </div>
     );

@@ -4,42 +4,103 @@
     background-color: black;
 }
 
-body {
-    cursor: none;
+#siteTitle {
+    position: fixed;
+    color: white;
+    left: 25px;
+    top: 20px;
+    cursor: pointer;
+    z-index: 50;
+}
+
+#about {
+    position: fixed;
+    color: white;
+    right: 25px;
+    top: 20px;
+    cursor: pointer;
+    z-index: 50;
+}
+
+#contact {
+    position: fixed;
+    color: white;
+    right: 25px;
+    bottom: 20px;
+    cursor: pointer;
+    z-index: 50;
+}
+
+#sound {
+    position: fixed;
+    left: 10px;
+    bottom: -10px;
+    cursor: pointer;
+    z-index: 50;
+    width: 80px;
+    height: 80px;
+}
+
+#socials {
+    position: fixed;
+    left: calc(50vw - 100px);
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    bottom: 20px;
+}
+
+.socialIcon {
+    width: 25px;
+    height: 25px;
+}
+
+#sidebar {
+    position: fixed;
+    width: calc(100vw);
+    height: calc(var(--app-height));
+    background-color: white;
+    left: calc(100vw);
+    transition: left 0.4s ease;
+    z-index: 49;
+}
+
+#sidebarTab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: white;
+    left: -40px;
+    top: calc(50vh - 80px);
+    width: 40px;
+    height: 120px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 #canvas {
-    position: fixed;
-    top: 0px;
-    width: 500px;
-    height: 400px;
-    display: none;
+    margin-bottom: 20px;
 }
 
-#circle {
-    position: fixed;
-    top: 0px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: white;
-    transition: transform 0.8s ease;
-    /* transform: scale(50); */
-}
-
-/* #canvasFlex {
+#canvasFlex {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100vw;
     height: 100vh;
     cursor: pointer;
-} */
+}
 
 #stars {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background-image: url("../assets/cart.png");
-    z-index: 50;
+    background-image: url("../assets/asfalt.png");
+    z-index: 48;
+    cursor: pointer;
 }
