@@ -1,238 +1,203 @@
-:root {
-  --app-height: 100%;
+@font-face {
+  font-family: "Kharkiv";
+  src: url("../../assets/Kharkiv.ttf");
 }
 
-#homeArea {
+#testBg {
   width: 100vw;
   height: 100vh;
+  background-color: #111111;
+  /* filter: invert(100%); */
+}
+
+/* ============= */
+/* Nav Links */
+/* ============= */
+.navText,
+.navTextBlack {
   position: fixed;
   cursor: pointer;
-}
-
-#mainFooter {
-  position: fixed;
-  top: calc(var(--app-height) - 76px);
-  left: 10px;
-  width: calc(100vw - 20px);
-  height: 64px;
-  background-color: black;
-  display: flex;
-  align-items: center;
-  border-radius: 10px;
-  z-index: 5;
-  transition: top 0.40s ease;
-}
-
-#homeSlide {
-  width: 100vw;
-  position: fixed;
-  bottom: 11px;
-  left: 10px;
-  width: calc(100vw - 20px);
-  height: calc(var(--app-height) - 32px);
-  position: absolute;
-  background-color: black;
-  transform-origin: bottom;
-  transform: scaleY(0);
-  transition: transform 0.4s ease;
-  border-radius: 10px;
-  overflow: scroll;
-  overflow-x: hidden;
-}
-
-#itemArea {
-  margin-top: 40px;
-  width: 100%;
-  height: 100%;
-  overflow: scroll;
-  overflow-x: hidden;
-  transition: opacity 0.5s ease;
-  opacity: 100%;
-  text-align: center;
-}
-
-#block {
-  width: 100%;
-  height: 80px;
-}
-
-/* #mainFooter:hover #bg {
-      transform: scaleY(1);    
-    } */
-
-#logo {
-  width: 28px;
-  height: 28px;
-  margin-left: 20px;
-}
-
-#footTitle {
+  z-index: 50;
   color: white;
-  margin-left: 15px;
-  font-weight: bold;
-  font-size: 14px;
+  font-family: "Kharkiv";
+  transition: 0.3s ease-in-out;
 }
 
-#upBtnArea {
+.navTextBlack {
+  color: white;
+}
+
+#siteTitle {
+  left: 25px;
+  top: 20px;
+}
+
+#about {
+  right: 25px;
+  top: 20px;
+}
+
+#contact {
+  right: 25px;
+  bottom: 20px;
+}
+
+.blacked {
+  filter: invert(0%);
+}
+
+#sound {
+  position: fixed;
+  left: 10px;
+  bottom: -10px;
   width: 80px;
-  height: 100%;
+  height: 80px;
+  z-index: 50;
+  transition: 0.3s ease-in-out;
+}
+
+/* ============= */
+/* Social Icons */
+/* ============= */
+#socials {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  position: absolute;
-  right: 0px;
+  z-index: 50;
+  transition: 1s ease-in-out;
+  transition-delay: 1s;
 }
 
-#upBtn {
-  width: 22px;
-  position: absolute;
-  right: 32px;
+.socialIcon {
+  padding: 25px;
+  width: 25px;
+  height: 25px;
   cursor: pointer;
-  transition: transform 0.3s ease;
 }
 
-#itemPage {
-  margin-top: 80px;
-  text-align: initial;
-}
-
-#productImageArea {
+/* ============= */
+/* Menu */
+/* ============= */
+#sidebar {
   position: relative;
-  width: 40%;
-  height: calc(100vh - 220px);
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: #11111100;
+  transition: all 1.6s ease-in-out;
+  z-index: 49;
+
+}
+
+#sidebarTab,
+#sidebarTab2 {
+  z-index: 100;
+
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  float: left;
-  text-align: center;
-}
-
-#productImage {
-  width: 450px;
-  max-width: 95vw;
-}
-
-#productImageBtnsFlex {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-#productImageBtns {
-  bottom: 0px;
-  width: 300px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.productImageBtn {
+  position: absolute;
+  top: calc(50vh - 80px);
   width: 40px;
-  height: 6px;
-  border: solid 1px white;
+  height: 90px;
   cursor: pointer;
-  border-radius: 8px;
-}
-
-#productInfoOuter {
-  float: right;
-  width: calc(60%);
-  height: calc(100vh - 220px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#productInfo {
-  text-align: center;
-  width: 500px;
-  max-width: 80vw;
-  color: white;
-}
-
-#sizeBtns {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 50px;
-}
-
-.sizeBtn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: solid 1px white;
-  width: 60px;
-  height: 23px;
-  font-size: 12px;
-  border-radius: 12px;
-  cursor: pointer;
-}
-
-#selectedSize {
-  color: black;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  right: 0px;
+  transition: all .5s ease-in-out;
   background-color: white;
+
 }
 
-#productTitle {
-  font-weight: bold;
-  font-size: 20px;
+#sidebarTab div,
+#sidebarTab2 div {
   text-transform: uppercase;
+  font-family: "Kharkiv";
+  font-weight: 700;
+  color: black;
 }
 
-#productTitle2 {
-  font-weight: bold;
-  font-size: 20px;
-  text-transform: uppercase;
-  display: none;
+/* ============= */
+/* Canvas/Animation */
+/* ============= */
+
+#canvas {
+  margin-bottom: 20px;
+}
+
+#canvasFlex {
+  display: flex;
   justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  cursor: pointer;
+  transition: all .5s ease-in-out;
 }
 
-#productDescription {
-  margin-top: 50px;
+/* BG */
+#stars {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  width: 200%;
+  height: 200vh;
+  background: transparent url("http://assets.iceable.com/img/noise-transparent.png") repeat 0 0;
+  background-repeat: repeat;
+  animation: bg-animation 0.2s infinite;
+  opacity: 1;
+  visibility: visible;
 }
 
-#paypalBtnArea {
-  margin-top: 60px;
-}
-
-@media only screen and (max-width: 1050px) {
-  #productImageArea {
-    position: relative;
-    width: 100%;
-    height: initial;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 0px;
-    /* background-color: blue; */
+@keyframes bg-animation {
+  0% {
+    transform: translate(0, 0);
   }
 
-  #productInfoOuter {
-    float: right;
-    width: 100%;
-    height: initial;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 40px;
+  10% {
+    transform: translate(-5%, -5%);
   }
 
-  #sizeBtns {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+  20% {
+    transform: translate(-10%, 5%);
   }
 
-  #productTitle {
-    display: none;
+  30% {
+    transform: translate(5%, -10%);
   }
 
-  #productTitle2 {
-    font-weight: bold;
-    font-size: 20px;
-    text-transform: uppercase;
-    display: flex;
+  40% {
+    transform: translate(-5%, 15%);
   }
 
+  50% {
+    transform: translate(-10%, 5%);
+  }
+
+  60% {
+    transform: translate(15%, 0);
+  }
+
+  70% {
+    transform: translate(0, 10%);
+  }
+
+  80% {
+    transform: translate(-15%, 0);
+  }
+
+  90% {
+    transform: translate(10%, 5%);
+  }
+
+  100% {
+    transform: translate(5%, 0);
+  }
 }

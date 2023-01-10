@@ -4,7 +4,7 @@ import upBtn from "../../assets/upload.png";
 import { useHistory, useParams } from "react-router-dom";
 import logo from "../../assets/LOGO.png"
 import axios from "axios";
-import "./itemPageStyle.css";
+// import "./itemPageStyle.css";
 
 function ItemPage() {
     const history = useHistory();
