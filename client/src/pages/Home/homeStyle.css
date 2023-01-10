@@ -32,6 +32,30 @@
   top: 20px;
 }
 
+#testyyyy {
+  position: fixed;
+  z-index: 900;
+  transition: 1s ease-in-out;
+}
+
+#textyyy {
+  position: fixed;
+  left: 50vw;
+  top: 170px;
+  color: white;
+  font-size: 25px;
+  opacity: 0;
+  font-family: "Kharkiv";
+  transition: 1s ease-in-out;
+}
+
+#subTexty {
+  font-family: "Kharkiv";
+  font-size: 15px;
+  width: 500px;
+  padding-top: 40px;
+}
+
 #about {
   right: 25px;
   top: 20px;

@@ -65,13 +65,38 @@ export default function Home() {
     }
 
     function playPause() {
-     var x = document.getElementById("audioPlayer");
+        var x = document.getElementById("audioPlayer");
         if (paused) {
             x.play();
         } else {
             x.pause();
         }
         setPaused(!paused);
+    }
+
+    function openItem(id) {
+        let image = document.getElementById(id);
+        let imgData = image.getBoundingClientRect();
+        console.log(imgData);
+
+
+        const newImage = document.createElement("img");
+        newImage.src = "https://cdn.shopify.com/s/files/1/1672/7095/products/CSH01E2_720x.png?v=1661039920";
+        newImage.width = imgData.width;
+        newImage.height = imgData.height;
+        newImage.style.left = imgData.x + "px";
+        newImage.style.top = imgData.y + "px";
+        newImage.id = "testyyyy"
+        document.getElementById("sidebar").appendChild(newImage);
+
+        document.getElementById("testCardCompOuterContainer").style.opacity = 0
+
+        setTimeout(() => {
+            newImage.style.scale = 1.3
+            newImage.style.top = ((window.innerHeight - 2) - (newImage.height * 1.5)) + "px";
+            newImage.style.left = "125.5px"
+            document.getElementById("textyyy").style.opacity = 100
+        }, 2000);
     }
 
     return (
@@ -114,17 +139,53 @@ export default function Home() {
             </div>
 
             <div id="sidebar" style={!shopOpen ? { top: "100vh" } : { top: "0vh" }}>
+                <div id="textyyy">
+                    Hoodie #4
+                    <div id="subTexty">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    </div>
+                </div>
                 <div id="testCardCompOuterContainer" style={!shopOpen ? { top: "0vh", background: "transparent", transitionDelay: "0s", transition: "background 0.5s ease-in-out" } : { top: "100vh", background: "black", transitionDelay: "1s" }}>
-                    {items.map((item, index) => {
-                        return (
-                            <ItemCard
-                                price={item.price}
-                                title={item.description}
-                                img={item.image}
-                                link="/item"
-                            />
-                        );
-                    })}
+                    <div id="testCardCompContainer">
+                        <div id="imgComtainer" onClick={() => openItem("1")}>
+                            <img id="1" src={"https://cdn.shopify.com/s/files/1/1672/7095/products/CSH01E2_720x.png?v=1661039920"}></img>
+                        </div>
+                    </div>
+                    <div id="testCardCompContainer" onClick={() => openItem("2")}>
+                        <div id="imgComtainer">
+                            <img id="2" src={"https://cdn.shopify.com/s/files/1/1672/7095/products/CSH01E2_720x.png?v=1661039920"}></img>
+                        </div>
+                    </div>
+                    <div id="testCardCompContainer" onClick={() => openItem("3")}>
+                        <div id="imgComtainer">
+                            <img id="3" src={"https://cdn.shopify.com/s/files/1/1672/7095/products/CSH01E2_720x.png?v=1661039920"}></img>
+                        </div>
+                    </div>
+                    <div id="testCardCompContainer" onClick={() => openItem("4")}>
+                        <div id="imgComtainer">
+                            <img id="4" src={"https://cdn.shopify.com/s/files/1/1672/7095/products/CSH01E2_720x.png?v=1661039920"}></img>
+                        </div>
+                    </div>
+                    <div id="testCardCompContainer">
+                        <div id="imgComtainer">
+                            <img src={"https://cdn.shopify.com/s/files/1/1672/7095/products/CSH01E2_720x.png?v=1661039920"}></img>
+                        </div>
+                    </div>
+                    <div id="testCardCompContainer">
+                        <div id="imgComtainer">
+                            <img src={"https://cdn.shopify.com/s/files/1/1672/7095/products/CSH01E2_720x.png?v=1661039920"}></img>
+                        </div>
+                    </div>
+                    <div id="testCardCompContainer">
+                        <div id="imgComtainer">
+                            <img src={"https://cdn.shopify.com/s/files/1/1672/7095/products/CSH01E2_720x.png?v=1661039920"}></img>
+                        </div>
+                    </div>
+                    <div id="testCardCompContainer">
+                        <div id="imgComtainer">
+                            <img src={"https://cdn.shopify.com/s/files/1/1672/7095/products/CSH01E2_720x.png?v=1661039920"}></img>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div id="canvasFlex" style={!shopOpen ? { opacity: 100, transitionDelay: "1100ms" } : { opacity: 0, transitionDelay: "50ms" }}>
