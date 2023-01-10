@@ -66,13 +66,38 @@ export default function Home() {
     }
 
     function playPause() {
-     var x = document.getElementById("audioPlayer");
+        var x = document.getElementById("audioPlayer");
         if (paused) {
             x.play();
         } else {
             x.pause();
         }
         setPaused(!paused);
+    }
+
+    function openItem(id) {
+        let image = document.getElementById(id);
+        let imgData = image.getBoundingClientRect();
+        console.log(imgData);
+
+
+        const newImage = document.createElement("img");
+        newImage.src = "https://cdn.shopify.com/s/files/1/1672/7095/products/CSH01E2_720x.png?v=1661039920";
+        newImage.width = imgData.width;
+        newImage.height = imgData.height;
+        newImage.style.left = imgData.x + "px";
+        newImage.style.top = imgData.y + "px";
+        newImage.id = "testyyyy"
+        document.getElementById("sidebar").appendChild(newImage);
+
+        document.getElementById("testCardCompOuterContainer").style.opacity = 0
+
+        setTimeout(() => {
+            newImage.style.scale = 1.3
+            newImage.style.top = ((window.innerHeight - 2) - (newImage.height * 1.5)) + "px";
+            newImage.style.left = "125.5px"
+            document.getElementById("textyyy").style.opacity = 100
+        }, 2000);
     }
 
     return (
