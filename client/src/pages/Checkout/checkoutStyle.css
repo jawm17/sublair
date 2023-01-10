@@ -20,3 +20,28 @@
 #checkoutItems {
     margin-top: 20px;
 }
+
+#checkoutTotal {
+    color: white;
+    font-family: "Kharkiv";
+    margin-bottom: 20px;
+}
+
+/* #paypalCheckoutBtn {
+    position: relative;
+    padding-top: 40px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    background-color: red;
+}
+
+#paypalArea {
+    width: 100%;
+} */
+
+@media only screen and (max-width: 919px) {
+    #checkoutArea {
+        width: 80vw;
+    }
+}

@@ -17,7 +17,7 @@ export default function Checkout() {
     }, []);
 
     useEffect(() => {
-        if(cartItems.length > 0) {
+        if (cartItems.length > 0) {
             let total = 0;
             cartItems.forEach(item => {
                 total += item.unit_amount.value
@@ -28,7 +28,7 @@ export default function Checkout() {
 
     function checkCart() {
         if (localStorage.cart) {
-            if(JSON.parse(localStorage.cart).length > 0) {
+            if (JSON.parse(localStorage.cart).length > 0) {
                 setCartItems(JSON.parse(localStorage.cart));
             } else {
                 history.push("/");
@@ -53,7 +53,7 @@ export default function Checkout() {
             <Nav />
             <div id="checkoutArea">
                 <div id="checkoutTitle">
-                    Cart Total: ${cartValue}
+                    Checkout
                 </div>
                 <div id="checkoutItems">
                     {cartItems?.map((item, index) => {
@@ -67,7 +67,20 @@ export default function Checkout() {
                         />
                     })}
                 </div>
-                {cartItems.length > 0 && cartValue > 0 ? <PaypalCheckoutButton products={cartItems} totalValue={cartValue}/> : null}
+                <div id="checkoutTotal">
+                    Cart Total: ${cartValue}
+                </div>
+                <div id="checkoutTotal">
+                    Shipping: free
+                </div>
+                <div id="checkoutTotal">
+                    Estimated Arrival: 2-3 days
+                </div>
+                <div id="paypalCheckoutBtn">
+                    <div id="paypalArea">
+                    {cartItems.length > 0 && cartValue > 0 ? <PaypalCheckoutButton products={cartItems} totalValue={cartValue} /> : null}
+                    </div>
+                </div>
             </div>
         </div>
     );
