@@ -15,7 +15,7 @@ function ItemPage2() {
 
   return (
     <div id="itemPage">
-                    <div id="stars"></div>
+                    {/* <div id="stars"></div> */}
       {/* nav */}
       <Nav />
       <div id="itemImgContainer">
