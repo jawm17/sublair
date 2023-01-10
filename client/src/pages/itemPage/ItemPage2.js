@@ -12,64 +12,12 @@ import items from "../../assets/items.json";
 import Nav from "../../components/Nav";
 
 function ItemPage2() {
-  var renderer, scene, camera, mesh;
-  const [shopOpen, setShopOpen] = useState(false);
 
-  useEffect(() => {
-    // initaite();
-  }, []);
-  console.log("");
-  function initaite() {
-    var canvas = document.getElementById("canvasItem");
-    var width = 500;
-    var height = 400;
-    renderer = new THREE.WebGLRenderer({
-      canvas: canvas,
-    });
-    renderer.setClearColor(0x000000, 0);
-    scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-    camera.position.set(0, 0, 150);
-    var geometry = new THREE.SphereGeometry(80, 15, 15);
-    var material = new THREE.MeshBasicMaterial({
-      color: 0xffffff,
-      wireframe: true,
-    });
-    mesh = new THREE.Mesh(geometry, material);
-    scene.add(mesh);
-    var light = new THREE.SpotLight(0xff0000);
-    light.position.set(50, 50, 150);
-    scene.add(light);
-
-    document.addEventListener("mousemove", move);
-    autoMove();
-  }
-
-  function move(e) {
-    mesh.rotation.x = e.pageY * 0.005;
-    mesh.rotation.y = e.pageX * 0.005;
-    renderer.render(scene, camera);
-  }
-
-  function autoMove() {
-    let pos = 0;
-    setInterval(() => {
-      pos = mesh.rotation.y;
-      mesh.rotation.y = pos + 0.5 * 0.005;
-      renderer.render(scene, camera);
-      // console.log(mesh.rotation.x);
-    }, 10);
-  }
   return (
     <div id="itemPage">
                     <div id="stars"></div>
       {/* nav */}
       <Nav />
-      <section className="sec" id="sec1"></section>
-      <section className="sec" id="sec2"></section>
-      <section className="sec" id="sec3"></section>
-      <section className="sec" id="sec4"></section>
-      {/* canvas */}
       <div id="itemImgContainer">
         <div id="mainImgContainer">
           <img
@@ -110,11 +58,11 @@ function ItemPage2() {
             <div>XL</div>
             <div>XXL</div>
           </div>
-          <div className="itemOptions" id="itemColor">
+          {/* <div className="itemOptions" id="itemColor">
             <h1>COLORS</h1>
             <div></div>
             <div></div>
-          </div>
+          </div> */}
         </div>
         <div id="itemBtnsContainer">
             <Link  className="itemBtns" style={{ textDecoration: "none", color: "white",marginBottom: "25px" }} href="/">

@@ -8,36 +8,6 @@
     grid-auto-rows: minmax(50vh, auto);
     background-color: #111111;
 }
-.sec{
-    position: absolute;
-    background-color: black;
-    z-index: 50;
-}
-
-#sec1{
-    width: 75px;
-    height: 100vh;
-    top: 0;
-    left: 0;
-}
-#sec2{
-    width: 100vw;
-    height: 75px;
-    bottom: 0px;
-    left: 0;
-}
-#sec3{
-    width: 75px;
-    height: 100vh;
-    top: 0;
-    right: 0;
-}
-#sec4{
-    width: 100vw;
-    height: 75px;
-    top: 0;
-    left: 0;
-}
 /* ============= */
 /* Main Img Container */
 /* ============= */
