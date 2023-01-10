@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
+import { ShopContext } from "../context/ShopContext";
 import "./styles/navStyle.css";
 import soundGif from "../assets/giphy.gif";
 import facebook from "../assets/facebook.png";
@@ -6,9 +7,12 @@ import insta from "../assets/insta.png";
 import twitter from "../assets/twitter.png";
 import music from "../assets/Grumble.mp3";
 import soundStopped from "../assets/musicStop.png";
+import { useHistory } from "react-router-dom";
 
 
 export default function Nav(props) {
+    const history = useHistory();
+    const { cartTotal, setCartTotal } = useContext(ShopContext);
     const [paused, setPaused] = useState(true);
 
 
@@ -29,8 +33,8 @@ export default function Nav(props) {
                     Sublair
                 </div>
             </a>
-            <div id="about" className="navText">
-                About
+            <div id="about" className="navText" onClick={() => history.push("/checkout")}>
+                Cart ({cartTotal})
             </div>
             <div id="contact" className="navText">
                 Contact
