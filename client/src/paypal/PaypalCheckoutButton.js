@@ -24,7 +24,7 @@ const PaypalCheckoutButton = (props) => {
                 payerEmail: order.payer.email_address,
                 payerId: order.payer.payer_id,
                 orderId: order.id,
-                itemId: "asdf",
+                itemId: product.itemId,
                 createdAt: order.create_time
             });
             console.log(res);

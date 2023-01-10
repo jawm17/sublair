@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import DashItem from "../../components/DashItem";
 import axios from "axios";
+import Order from "../../components/Order";
 import "./accountStyle.css";
 
 export default function Account(props) {
@@ -112,74 +113,11 @@ export default function Account(props) {
                             <div id="horLine">
 
                             </div>
-                            <div className="orderItem">
-                                <div className="leftOrderStat">
-                                    t-shirt
-                                </div>
-                                <div>
-                                    $124
-                                </div>
-                                <div>
-                                    12/18/22 9:09AM
-                                </div>
-                                <div>
-                                    JAMES CREEPY
-                                </div>
-                                <div className="rightOrderStat">
-                                    dfakj-AP90
-                                </div>
-                            </div>
-                            <div className="orderItem">
-                                <div className="leftOrderStat">
-                                    t-shirt
-                                </div>
-                                <div>
-                                    $124
-                                </div>
-                                <div>
-                                    12/18/22 9:09AM
-                                </div>
-                                <div>
-                                    JAMES CREEPY
-                                </div>
-                                <div className="rightOrderStat">
-                                    dfakj-AP90
-                                </div>
-                            </div>
-                            <div className="orderItem">
-                                <div className="leftOrderStat">
-                                    t-shirt
-                                </div>
-                                <div>
-                                    $124
-                                </div>
-                                <div>
-                                    12/18/22 9:09AM
-                                </div>
-                                <div>
-                                    JAMES CREEPY
-                                </div>
-                                <div className="rightOrderStat">
-                                    dfakj-AP90
-                                </div>
-                            </div>
-                            <div className="orderItem">
-                                <div className="leftOrderStat">
-                                    t-shirt
-                                </div>
-                                <div>
-                                    $124
-                                </div>
-                                <div>
-                                    12/18/22 9:09AM
-                                </div>
-                                <div>
-                                    JAMES CREEPY
-                                </div>
-                                <div className="rightOrderStat">
-                                    dfakj-AP90
-                                </div>
-                            </div>
+                            <Order />
+                            <Order />
+                            <Order />
+                            <Order />
+                            <Order />
                         </div>
                     </div>
                 </div>

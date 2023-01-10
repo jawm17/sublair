@@ -1,0 +1,20 @@
+.orderItem {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    border-radius: 8px;
+    background-color: black;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.leftOrderStat {
+    margin-left: 25px;
+}
+
+.rightOrderStat {
+    margin-right: 25px;
+}

@@ -26,7 +26,7 @@ function ItemPage() {
         try {
             const data = await axios.get("/item/get-info/" + id);
             const { description, title, price, images, thumbnail } = data.data;
-            setItem({ description, title, price, images, thumbnail });
+            setItem({ description, title, price, images, thumbnail, itemId: id });
         } catch (error) {
             console.log(error);
             history.push("/");

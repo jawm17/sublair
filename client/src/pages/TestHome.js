@@ -1,14 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import * as THREE from 'three';
-import sound from "../assets/giphy.gif";
+import soundGif from "../assets/giphy.gif";
+import soundStopped from "../assets/musicStop.png";
 import facebook from "../assets/facebook.png";
 import insta from "../assets/insta.png";
 import twitter from "../assets/twitter.png";
+import music from "../assets/Grumble.mp3";
 import "./testStyle.css";
 
 export default function TestHome() {
     const history = useHistory();
+    const [paused, setPaused] = useState(true);
     var renderer, scene, camera, mesh;
 
     useEffect(() => {
@@ -72,6 +75,16 @@ export default function TestHome() {
         }
     }
 
+    function playPause() {
+        var x = document.getElementById("audioPlayer");
+        if (paused) {
+            x.play();
+        } else {
+            x.pause();
+        }
+        setPaused(!paused);
+    }
+
     return (
         <div id="testBg">
             <div id="stars">
@@ -86,7 +99,15 @@ export default function TestHome() {
             <div id="contact" className="navText">
                 contact
             </div>
-            <img src={sound} id="sound"></img>
+            <img src={paused ? soundStopped : soundGif} id="sound" onClick={() => playPause()}></img>
+            <audio
+                id="audioPlayer"
+                controls
+                autoPlay={false}
+                src={music}
+                style={{display: "none"}}
+                >
+            </audio>
             <div id="socials">
                 <img className="socialIcon" src={insta}></img>
                 <img className="socialIcon" src={facebook}></img>

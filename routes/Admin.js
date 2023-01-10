@@ -4,7 +4,7 @@ const passport = require('passport');
 const Item = require('../models/Item');
 const message = { msgBody: "Error has occured", msgError: true };
 
-//create new inventory item
+// create new inventory item
 adminRouter.post('/add-item', passport.authenticate('jwt', { session: false }), (req, res) => {
     const message = { msgBody: "Error has occured", msgError: true };
     const { title, price, description, images, thumbnail } = req.body;
@@ -16,6 +16,19 @@ adminRouter.post('/add-item', passport.authenticate('jwt', { session: false }), 
             res.status(201).json({ message: { msgBody: "Account successfully created", msgError: false } });
     });
 });
+
+// update inventory item
+adminRouter.post('/update-item', passport.authenticate('jwt', { session: false }), (req, res) => {
+    const { item, id } = req.body;
+    Item.findOneAndUpdate({ _id: id }, item, (err, item) => {
+        if (err)
+            res.status(500).json({ message: { msgBody: "Error has occured", msgError: true } });
+        else {
+            res.status(201).json({ message: { msgBody: "Item successfully updated", msgError: false } });
+        }
+    });
+});
+
 
 // get all inventory
 adminRouter.get('/get-inventory', passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -31,7 +44,7 @@ adminRouter.get('/get-inventory', passport.authenticate('jwt', { session: false 
 
 // get all inventory
 adminRouter.get('/item-data/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
-    Item.findById({ _id: req.params.id }).exec((err, item) => {
+    Item.findById({ _id: req.params.id }).populate("orders").exec((err, item) => {
         if (err) {
             res.status(500).json({ message });
         }
