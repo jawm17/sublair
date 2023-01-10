@@ -1,0 +1,20 @@
+#checkoutFlex {
+    display: flex;
+    justify-content: center;
+}
+
+#checkoutArea {
+    width: 60vw;
+}
+
+#checkoutTitle {
+    color: white;
+    font-family: "Kharkiv";
+    text-align: center;
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+#checkoutItems {
+    margin-top: 20px;
+}
