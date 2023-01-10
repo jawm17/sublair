@@ -15,7 +15,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 45px;
-    grid-auto-rows: minmax(50vh, auto);
+    /* grid-auto-rows: repeat(45vw, auto); */
     transition: all 1.5s ease-in-out;
     overflow: scroll;
   }

@@ -8,6 +8,7 @@ import twitter from "../../assets/twitter.png";
 import "./homeStyle.css";
 import ItemCard from "../../components/ItemCard";
 import items from "../../assets/items.json";
+import Nav from "../../components/Nav";
 
 
 export default function Home() {
@@ -64,21 +65,7 @@ export default function Home() {
     return (
         <div id="testBg">
             <div id="stars"></div>
-            <div id="siteTitle" className={shopOpen ? "navTextBlack" : "navText"} onClick={() => setShopOpen(false)}>
-                Sublair
-            </div>
-            <div id="about" className={shopOpen ? "navTextBlack" : "navText"}>
-                About
-            </div>
-            <div id="contact" className={shopOpen ? "navTextBlack" : "navText"}>
-                Contact
-            </div>
-            <img src={sound} id="sound" className={shopOpen ? "blacked" : ""}></img>
-            <div id="socials" style={!shopOpen ? { background: "transparent" } : { background: "black" }}>
-                <img className="socialIcon" src={insta}></img>
-                <img className="socialIcon" src={facebook}></img>
-                <img className="socialIcon" src={twitter}></img>
-            </div>
+            <Nav shopOpenNav={shopOpen}/>
             <div id="sidebarTab" style={!shopOpen ? { opacity: 100, right: 0, transitionDelay: "1100ms" } : { opacity: 0, right: -40, transitionDelay: "0ms" }} onClick={() => setShopOpen(true)}>
                 <div>s</div>
                 <div>h</div>
@@ -93,7 +80,7 @@ export default function Home() {
             </div>
 
             <div id="sidebar" style={!shopOpen ? { top: "100vh" } : { top: "0vh" }}>
-                <div id="testCardCompOuterContainer" style={!shopOpen ? { top: "0vh", background: "transparent", transitionDelay: "0s", transition: "background 0.5s ease-in-out" } : { top: "100vh", background: "black", transitionDelay: "1s" }}>
+                <div id="testCardCompOuterContainer" style={!shopOpen ? { top: "0vh", background: "transparent", transitionDelay: "0s" } : { top: "100vh", background: "black", transitionDelay: "1.5s" }}>
                     {items.map((item, index) => {
                         return (
                             <ItemCard
