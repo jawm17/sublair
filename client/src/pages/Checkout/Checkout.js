@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from "react";
 import CartItem from "../../components/CartItem";
+import Nav from "../../components/Nav";
 import axios from "axios";
 import PaypalCheckoutButton from "../../paypal/PaypalCheckoutButton";
+import { useHistory } from "react-router-dom";
 import "./checkoutStyle.css";
 
 export default function Checkout() {
+    const history = useHistory();
     const [item, setItem] = useState();
     const [cartItems, setCartItems] = useState([]);
-    const [cartTotal, setCartTotal] = useState(0);
+    const [cartValue, setCartValue] = useState(0);
 
     useEffect(() => {
-        if (localStorage.cart) {
-            setCartItems(JSON.parse(localStorage.cart));
-        } else {
-            // no items in cart
-        }
+        checkCart();
     }, []);
 
     useEffect(() => {
@@ -23,9 +22,19 @@ export default function Checkout() {
             cartItems.forEach(item => {
                 total += item.unit_amount.value
             });
-            setCartTotal(total);
+            setCartValue(total);
         }
     }, [cartItems]);
+
+    function checkCart() {
+        if (localStorage.cart) {
+            if(JSON.parse(localStorage.cart).length > 0) {
+                setCartItems(JSON.parse(localStorage.cart));
+            } else {
+                history.push("/");
+            }
+        }
+    }
 
     // async function getItemInfo(cartItems) {
     //     try {
@@ -41,9 +50,10 @@ export default function Checkout() {
 
     return (
         <div id="checkoutFlex">
+            <Nav />
             <div id="checkoutArea">
                 <div id="checkoutTitle">
-                    Cart Total: ${cartTotal}
+                    Cart Total: ${cartValue}
                 </div>
                 <div id="checkoutItems">
                     {cartItems?.map((item, index) => {
@@ -51,11 +61,13 @@ export default function Checkout() {
                             image={item.thumbnail}
                             price={item.unit_amount.value}
                             title={item.name}
+                            index={index}
+                            updateItems={() => checkCart()}
                             key={item.sku + index}
                         />
                     })}
                 </div>
-                {cartItems.length > 0 && cartTotal > 0 ? <PaypalCheckoutButton products={cartItems} totalValue={cartTotal}/> : null}
+                {cartItems.length > 0 && cartValue > 0 ? <PaypalCheckoutButton products={cartItems} totalValue={cartValue}/> : null}
             </div>
         </div>
     );

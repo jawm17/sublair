@@ -1,7 +1,9 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import "./styles/itemCardStyle.css";
 
 export default function ItemCard(props) {
+    const history = useHistory();
 
     return (
         <div id="testCardCompContainer">
@@ -10,7 +12,7 @@ export default function ItemCard(props) {
                 <h1>{props.price}</h1>            
             </div> */}
             <div id="imgComtainer">
-                <a href="/item"><img  src={props.img}></img></a>
+                <a onClick={() => history.push("/item/" + props.id)}><img  src={props.img}></img></a>
             </div>
         </div>
     );

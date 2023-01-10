@@ -1,6 +1,8 @@
 #checkoutFlex {
     display: flex;
     justify-content: center;
+    overflow-y: scroll;
+    height: 100vh;
 }
 
 #checkoutArea {
@@ -12,7 +14,7 @@
     font-family: "Kharkiv";
     text-align: center;
     font-size: 25px;
-    margin-top: 20px;
+    margin-top: 80px;
 }
 
 #checkoutItems {

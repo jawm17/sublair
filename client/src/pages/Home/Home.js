@@ -9,20 +9,32 @@ import twitter from "../../assets/twitter.png";
 import music from "../../assets/Grumble.mp3";
 import "./homeStyle.css";
 import ItemCard from "../../components/ItemCard";
-import items from "../../assets/items.json";
 import Nav from "../../components/Nav";
+import axios from "axios";
 
 
 export default function Home() {
     const history = useHistory();
     const [paused, setPaused] = useState(true);
     const [shopOpen, setShopOpen] = useState(false);
+    const [items, setItems] = useState([]);
     var renderer, scene, camera, mesh;
 
 
     useEffect(() => {
         initaite();
+        getItems();
     }, []);
+
+    async function getItems() {
+        try {
+            const data = await axios.get("/item/get-listings");
+            console.log(data);
+            setItems(data.data.document);
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     function initaite() {
         var canvas = document.getElementById("canvas");
@@ -124,8 +136,9 @@ export default function Home() {
                             <ItemCard
                                 price={item.price}
                                 title={item.description}
-                                img={item.image}
-                                link="/item"
+                                img={item.images[item.thumbnail]}
+                                id={item._id}
+                                key={item._id}
                             />
                         );
                     })}
