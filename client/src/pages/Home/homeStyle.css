@@ -40,6 +40,7 @@
 #contact {
   right: 25px;
   bottom: 20px;
+  z-index: 500;
 }
 
 .blacked {
@@ -52,7 +53,7 @@
   bottom: -10px;
   width: 80px;
   height: 80px;
-  z-index: 50;
+  z-index: 500;
   transition: 0.3s ease-in-out;
 }
 

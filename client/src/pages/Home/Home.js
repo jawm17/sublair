@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import * as THREE from "three";
-import sound from "../../assets/giphy.gif";
+import soundGif from "../../assets/giphy.gif";
+import soundStopped from "../../assets/musicStop.png";
 import facebook from "../../assets/facebook.png";
 import insta from "../../assets/insta.png";
 import twitter from "../../assets/twitter.png";
+import music from "../../assets/Grumble.mp3";
 import "./homeStyle.css";
 import ItemCard from "../../components/ItemCard";
 import items from "../../assets/items.json";
@@ -12,6 +14,7 @@ import items from "../../assets/items.json";
 
 export default function Home() {
     const history = useHistory();
+    const [paused, setPaused] = useState(true);
     const [shopOpen, setShopOpen] = useState(false);
     var renderer, scene, camera, mesh;
 
@@ -19,7 +22,7 @@ export default function Home() {
     useEffect(() => {
         initaite();
     }, []);
-    console.log("")
+
     function initaite() {
         var canvas = document.getElementById("canvas");
         var width = 500;
@@ -58,9 +61,19 @@ export default function Home() {
             pos = mesh.rotation.y;
             mesh.rotation.y = pos + 0.5 * 0.005;
             renderer.render(scene, camera);
-            // console.log(mesh.rotation.x);
         }, 10);
     }
+
+    function playPause() {
+     var x = document.getElementById("audioPlayer");
+        if (paused) {
+            x.play();
+        } else {
+            x.pause();
+        }
+        setPaused(!paused);
+    }
+
     return (
         <div id="testBg">
             <div id="stars"></div>
@@ -73,11 +86,19 @@ export default function Home() {
             <div id="contact" className={shopOpen ? "navTextBlack" : "navText"}>
                 Contact
             </div>
-            <img src={sound} id="sound" className={shopOpen ? "blacked" : ""}></img>
+            <img src={paused ? soundStopped : soundGif} id="sound" className={shopOpen ? "blacked" : ""} onClick={() => playPause()}></img>
+            <audio
+                id="audioPlayer"
+                controls
+                autoPlay={false}
+                src={music}
+                style={{ display: "none" }}
+            >
+            </audio>
             <div id="socials" style={!shopOpen ? { background: "transparent" } : { background: "black" }}>
-                <img className="socialIcon" src={insta}></img>
-                <img className="socialIcon" src={facebook}></img>
-                <img className="socialIcon" src={twitter}></img>
+                <img className="socialIcon" src={insta} onClick={() => window.open("https://www.instagram.com/_mindfabric/", '_blank')}></img>
+                <img className="socialIcon" src={facebook} onClick={() => window.open("https://www.facebook.com/Xmindfabric", '_blank')}></img>
+                <img className="socialIcon" src={twitter} onClick={() => window.open("https://twitter.com/_mindfabric", '_blank')}></img>
             </div>
             <div id="sidebarTab" style={!shopOpen ? { opacity: 100, right: 0, transitionDelay: "1100ms" } : { opacity: 0, right: -40, transitionDelay: "0ms" }} onClick={() => setShopOpen(true)}>
                 <div>s</div>
