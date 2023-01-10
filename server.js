@@ -6,7 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const cookieParser = require("cookie-parser");
 
-const db = "mongodb://localhost:27017/sublair";
+const db = "mongodb+srv://koikoi5:koikoi5@cluster0.lnkmi3d.mongodb.net/?retryWrites=true&w=majority";
 const db_dev = "mongodb://localhost:27017/sublair";
 
 // Define middleware here
@@ -29,7 +29,7 @@ app.use(router);
 if (process.env.NODE_ENV === "production") {
   mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 } else {
-  mongoose.connect(db_dev, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
+  mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 }
 
 // Start the API server

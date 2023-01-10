@@ -2,13 +2,12 @@ nav{
     position: absolute;
     width: 100vw;
     height: 100vh;
-
 }
 /* ============= */
 /* Nav Links */
 /* ============= */
 .navText {
-  position: absolute;
+  position: fixed;
   cursor: pointer;
   z-index: 51;
   color: white;

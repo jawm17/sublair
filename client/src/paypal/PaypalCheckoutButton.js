@@ -28,10 +28,10 @@ const PaypalCheckoutButton = (props) => {
                 payerEmail: order.payer.email_address,
                 payerId: order.payer.payer_id,
                 orderId: order.id,
-                itemId: product.itemId,
                 createdAt: order.create_time
             });
             console.log(res);
+            alert("success");
         } catch (error) {
             console.log(error);
         }
@@ -60,7 +60,7 @@ const PaypalCheckoutButton = (props) => {
                     //     description: product.title,
                     //     amount: {
                     //         value: product.price,
-                        
+
                     //     },
                     //     reference_id: product.itemId,
                     //     quantity: 2
@@ -73,7 +73,7 @@ const PaypalCheckoutButton = (props) => {
                             value: totalValue,
                             currency_code: 'USD',
                             breakdown: {
-                                item_total: {value: totalValue, currency_code: 'USD'}
+                                item_total: { value: totalValue, currency_code: 'USD' }
                             }
                         },
                         items: product

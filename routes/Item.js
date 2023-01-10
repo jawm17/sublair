@@ -8,25 +8,13 @@ const message = { msgBody: "Error has occured", msgError: true };
 //create new order object
 itemRouter.post('/new-order', (req, res) => {
     const message = { msgBody: "Error has occured", msgError: true };
-    const { amountPayed, payerName, payerEmail, payerId, orderId, itemId, createdAt } = req.body;
-    const newOrder = new Order({ amountPayed, payerName, payerEmail, payerId, orderId, itemId, createdAt });
+    const { amountPayed, payerName, payerEmail, payerId, orderId, createdAt } = req.body;
+    const newOrder = new Order({ amountPayed, payerName, payerEmail, payerId, orderId, createdAt });
     newOrder.save(err => {
         if (err) res.status(500).json({ message });
         else {
-            Item.findById({ _id: itemId }).exec((err, item) => {
-                if (err) res.status(500).json({ message });
-                else {
-                    item.orders.push(newOrder);
-                    item.save(err => {
-                        if (err) res.status(500).json({ message });
-                        else {
-                            res.status(201).json({ message: { msgBody: "Order successfully created", msgError: false } });
-                        }
-                    });
-                }
-            })
+            res.status(201).json({ message: { msgBody: "Order successfully created", msgError: false } });
         }
-
     });
 });
 
