@@ -10,6 +10,7 @@ import music from "../../assets/Grumble.mp3";
 import "./homeStyle.css";
 import ItemCard from "../../components/ItemCard";
 import items from "../../assets/items.json";
+import Nav from "../../components/Nav";
 
 
 export default function Home() {
@@ -102,29 +103,7 @@ export default function Home() {
     return (
         <div id="testBg">
             <div id="stars"></div>
-            <div id="siteTitle" className={shopOpen ? "navTextBlack" : "navText"} onClick={() => setShopOpen(false)}>
-                Sublair
-            </div>
-            <div id="about" className={shopOpen ? "navTextBlack" : "navText"}>
-                About
-            </div>
-            <div id="contact" className={shopOpen ? "navTextBlack" : "navText"}>
-                Contact
-            </div>
-            <img src={paused ? soundStopped : soundGif} id="sound" className={shopOpen ? "blacked" : ""} onClick={() => playPause()}></img>
-            <audio
-                id="audioPlayer"
-                controls
-                autoPlay={false}
-                src={music}
-                style={{ display: "none" }}
-            >
-            </audio>
-            <div id="socials" style={!shopOpen ? { background: "transparent" } : { background: "black" }}>
-                <img className="socialIcon" src={insta} onClick={() => window.open("https://www.instagram.com/_mindfabric/", '_blank')}></img>
-                <img className="socialIcon" src={facebook} onClick={() => window.open("https://www.facebook.com/Xmindfabric", '_blank')}></img>
-                <img className="socialIcon" src={twitter} onClick={() => window.open("https://twitter.com/_mindfabric", '_blank')}></img>
-            </div>
+            <Nav shopOpenNav={shopOpen}/>
             <div id="sidebarTab" style={!shopOpen ? { opacity: 100, right: 0, transitionDelay: "1100ms" } : { opacity: 0, right: -40, transitionDelay: "0ms" }} onClick={() => setShopOpen(true)}>
                 <div>s</div>
                 <div>h</div>
@@ -139,53 +118,17 @@ export default function Home() {
             </div>
 
             <div id="sidebar" style={!shopOpen ? { top: "100vh" } : { top: "0vh" }}>
-                <div id="textyyy">
-                    Hoodie #4
-                    <div id="subTexty">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    </div>
-                </div>
-                <div id="testCardCompOuterContainer" style={!shopOpen ? { top: "0vh", background: "transparent", transitionDelay: "0s", transition: "background 0.5s ease-in-out" } : { top: "100vh", background: "black", transitionDelay: "1s" }}>
-                    <div id="testCardCompContainer">
-                        <div id="imgComtainer" onClick={() => openItem("1")}>
-                            <img id="1" src={"https://cdn.shopify.com/s/files/1/1672/7095/products/CSH01E2_720x.png?v=1661039920"}></img>
-                        </div>
-                    </div>
-                    <div id="testCardCompContainer" onClick={() => openItem("2")}>
-                        <div id="imgComtainer">
-                            <img id="2" src={"https://cdn.shopify.com/s/files/1/1672/7095/products/CSH01E2_720x.png?v=1661039920"}></img>
-                        </div>
-                    </div>
-                    <div id="testCardCompContainer" onClick={() => openItem("3")}>
-                        <div id="imgComtainer">
-                            <img id="3" src={"https://cdn.shopify.com/s/files/1/1672/7095/products/CSH01E2_720x.png?v=1661039920"}></img>
-                        </div>
-                    </div>
-                    <div id="testCardCompContainer" onClick={() => openItem("4")}>
-                        <div id="imgComtainer">
-                            <img id="4" src={"https://cdn.shopify.com/s/files/1/1672/7095/products/CSH01E2_720x.png?v=1661039920"}></img>
-                        </div>
-                    </div>
-                    <div id="testCardCompContainer">
-                        <div id="imgComtainer">
-                            <img src={"https://cdn.shopify.com/s/files/1/1672/7095/products/CSH01E2_720x.png?v=1661039920"}></img>
-                        </div>
-                    </div>
-                    <div id="testCardCompContainer">
-                        <div id="imgComtainer">
-                            <img src={"https://cdn.shopify.com/s/files/1/1672/7095/products/CSH01E2_720x.png?v=1661039920"}></img>
-                        </div>
-                    </div>
-                    <div id="testCardCompContainer">
-                        <div id="imgComtainer">
-                            <img src={"https://cdn.shopify.com/s/files/1/1672/7095/products/CSH01E2_720x.png?v=1661039920"}></img>
-                        </div>
-                    </div>
-                    <div id="testCardCompContainer">
-                        <div id="imgComtainer">
-                            <img src={"https://cdn.shopify.com/s/files/1/1672/7095/products/CSH01E2_720x.png?v=1661039920"}></img>
-                        </div>
-                    </div>
+                <div id="testCardCompOuterContainer" style={!shopOpen ? { top: "0vh", background: "transparent", transitionDelay: "0s" } : { top: "100vh", background: "black", transitionDelay: "1.5s" }}>
+                    {items.map((item, index) => {
+                        return (
+                            <ItemCard
+                                price={item.price}
+                                title={item.description}
+                                img={item.image}
+                                link="/item"
+                            />
+                        );
+                    })}
                 </div>
             </div>
             <div id="canvasFlex" style={!shopOpen ? { opacity: 100, transitionDelay: "1100ms" } : { opacity: 0, transitionDelay: "50ms" }}>
