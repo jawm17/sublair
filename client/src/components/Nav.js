@@ -51,7 +51,7 @@ export default function Nav(props) {
             <div id="socials" style={!props.shopOpenNav ? { background: "#0000" } : { background: "black", transitionDelay: "1.5s" }}>
                 <a className="socialIcon" href="https://www.instagram.com/_mindfabric/"><img src={insta}></img></a>
                 <a className="socialIcon" href="#"><img src={facebook}></img></a>
-                <a className="socialIcon" href="#"><img src={twitter}></img></a>
+                <a className="socialIcon" href="#"><img id="twitterIcon" src={twitter}></img></a>
             </div>
         </nav>
     );

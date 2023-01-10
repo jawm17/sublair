@@ -4,8 +4,10 @@
 }
 
 #testBg {
+  position: relative;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
   background-color: #111111;
   /* filter: invert(100%); */
 }
@@ -23,10 +25,8 @@
 
 }
 
-#sidebarTab,
-#sidebarTab2 {
+#sidebarTab {
   z-index: 50;
-
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -46,20 +46,19 @@
 
 }
 
-#sidebarTab div,
-#sidebarTab2 div {
+#sidebarTab div{
   text-transform: uppercase;
   font-family: "Kharkiv";
   font-weight: 700;
   color: black;
 }
-
 /* ============= */
 /* Canvas/Animation */
 /* ============= */
 
 #canvas {
   margin-bottom: 20px;
+
 }
 
 #canvasFlex {
@@ -132,4 +131,16 @@
   100% {
     transform: translate(5%, 0);
   }
+}
+
+
+
+/* ----------- iPhone X ----------- */
+@media only screen 
+and (min-device-width: 175px) 
+and (max-device-width: 812px)  { 
+
+#sidebarTab {
+  width: 25px;
+}
 }

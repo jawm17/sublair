@@ -1,32 +1,35 @@
 nav{
     position: absolute;
+    width: 100vw;
+    height: 100vh;
+
 }
 /* ============= */
 /* Nav Links */
 /* ============= */
 .navText {
-  position: fixed;
+  position: absolute;
   cursor: pointer;
   z-index: 51;
   color: white;
   font-family: "Kharkiv";
   transition: 0.3s ease-in-out;
+  font-size: 1.15rem;
 }
-
 
 #siteTitle {
   left: 25px;
-  top: 20px;
+  top: 25px;
 }
 
 #about {
   right: 25px;
-  top: 20px;
+  top: 25px;
 }
 
 #contact {
   right: 25px;
-  bottom: 20px;
+  bottom: 25px;
 }
 
 #sound {
@@ -61,3 +64,25 @@ nav{
     height: 25px;
     cursor: pointer;
   }
+
+
+
+/* ----------- iPhone X ----------- */
+
+@media only screen 
+and (min-device-width: 175px) 
+and (max-device-width: 812px)  { 
+/* ============= */
+/* Nav Links */
+/* ============= */
+.navText {
+  font-size: 1.15rem;
+}
+#contact {
+  display: none;
+}
+#sound {
+  display: none;
+
+}
+}

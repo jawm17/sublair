@@ -79,21 +79,19 @@
     object-fit: fill;
   }
   
-  
-  /* old card img container */
-  /* #imgComtainer {
-    border-radius: 5px;
-    height: 300px;
-    width: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+/* ----------- iPhone X ----------- */
+
+@media only screen 
+and (min-device-width: 175px) 
+and (max-device-width: 812px)  { 
+
+  #testCardCompOuterContainer {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 60px;
+    width: calc(100vw - 100px);
+    grid-template-columns: repeat(1, 1fr);
+    gap: 35px;
   }
-  
-  #imgComtainer img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  } */
+  }
   

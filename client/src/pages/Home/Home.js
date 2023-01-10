@@ -115,14 +115,14 @@ export default function Home() {
     return (
         <div id="testBg">
             <div id="stars"></div>
-            <Nav shopOpenNav={shopOpen}/>
+            <Nav shopOpenNav={shopOpen} />
             <div id="sidebarTab" style={!shopOpen ? { opacity: 100, right: 0, transitionDelay: "1100ms" } : { opacity: 0, right: -40, transitionDelay: "0ms" }} onClick={() => setShopOpen(true)}>
                 <div>s</div>
                 <div>h</div>
                 <div>o</div>
                 <div>p</div>
             </div>
-            <div id="sidebarTab2" style={!shopOpen ? { opacity: 0, right: -40, transitionDelay: "0ms" } : { opacity: 100, right: 0, transitionDelay: "1100ms" }} onClick={() => setShopOpen(false)}>
+            <div id="sidebarTab" style={!shopOpen ? { opacity: 0, right: -40, transitionDelay: "0ms" } : { opacity: 100, right: 0, transitionDelay: "1100ms" }} onClick={() => setShopOpen(false)}>
                 <div>h</div>
                 <div>o</div>
                 <div>m</div>
@@ -145,8 +145,14 @@ export default function Home() {
                 </div>
             </div>
             <div id="canvasFlex" style={!shopOpen ? { opacity: 100, transitionDelay: "1100ms" } : { opacity: 0, transitionDelay: "50ms" }}>
-                <canvas id="canvas" width="500" height="400"></canvas>
+                <canvas id="canvas" height={"300px"} width={"400px"}></canvas>
             </div>
         </div>
     );
 }
+
+// normal desktop media q
+{/* <canvas id="canvas" height={"400px"} width={"500px"}></canvas> */ }
+
+// iphone media q
+{/* <canvas id="canvas" height={"250px"} width={"350px"}></canvas> */ }
