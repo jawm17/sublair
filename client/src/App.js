@@ -10,12 +10,13 @@ import "./index.css";
 import NoMatchPage from "./pages/noMatchPage";
 import Login from "./pages/UserAuth/Login";
 import Register from "./pages/UserAuth/Register";
-import Home from './pages/Home/home';
+import Home from './pages/Home/Home';
 import Account from "./pages/Account/account";
 import AddItem from './pages/addItem/AddItem';
 import EditItem from './pages/editItem/EditItem';
 import PayPalMiddle2 from './pages/itemPage/PayPalMiddle2';
 import TestHome from './pages/TestHome';
+import ItemPage2 from './pages/itemPage/ItemPage2';
 
 function App() {
   useEffect(() => {
@@ -37,6 +38,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/test" component={TestHome} />
         <Route exact path="/item/:id" component={PayPalMiddle2} />
+        <Route exact path="/item" component={ItemPage2} />
         <PrivateRoute exact path="/admin" component={Account} />
         <PrivateRoute path="/admin/add-item" component={AddItem} />
         <PrivateRoute path="/admin/item/:id" component={EditItem} />
