@@ -63,16 +63,12 @@ function ItemPage2() {
     }
   }
 
+
   return (
     <div id="itemPage">
       <div id="stars"></div>
       {/* nav */}
       <Nav />
-      <section className="sec" id="sec1"></section>
-      <section className="sec" id="sec2"></section>
-      <section className="sec" id="sec3"></section>
-      <section className="sec" id="sec4"></section>
-      {/* canvas */}
       <div id="itemImgContainer">
         <div id="mainImgContainer">
           <img
