@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import * as THREE from "three";
-import sound from "../../assets/giphy.gif";
+import soundGif from "../../assets/giphy.gif";
+import soundStopped from "../../assets/musicStop.png";
 import facebook from "../../assets/facebook.png";
 import insta from "../../assets/insta.png";
 import twitter from "../../assets/twitter.png";
+import music from "../../assets/Grumble.mp3";
 import "./homeStyle.css";
 import ItemCard from "../../components/ItemCard";
 import items from "../../assets/items.json";
@@ -13,6 +15,7 @@ import Nav from "../../components/Nav";
 
 export default function Home() {
     const history = useHistory();
+    const [paused, setPaused] = useState(true);
     const [shopOpen, setShopOpen] = useState(false);
     var renderer, scene, camera, mesh;
 
@@ -20,7 +23,7 @@ export default function Home() {
     useEffect(() => {
         initaite();
     }, []);
-    console.log("")
+
     function initaite() {
         var canvas = document.getElementById("canvas");
         var width = 500;
@@ -59,9 +62,19 @@ export default function Home() {
             pos = mesh.rotation.y;
             mesh.rotation.y = pos + 0.5 * 0.005;
             renderer.render(scene, camera);
-            // console.log(mesh.rotation.x);
         }, 10);
     }
+
+    function playPause() {
+     var x = document.getElementById("audioPlayer");
+        if (paused) {
+            x.play();
+        } else {
+            x.pause();
+        }
+        setPaused(!paused);
+    }
+
     return (
         <div id="testBg">
             <div id="stars"></div>
