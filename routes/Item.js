@@ -31,6 +31,18 @@ itemRouter.get('/get-listings', (req, res) => {
 });
 
 // get all inventory
+itemRouter.get('/get-orders', (req, res) => {
+    Order.find().exec((err, document) => {
+        if (err) {
+            res.status(500).json({ message });
+        }
+        else {
+            res.status(200).json({ document });
+        }
+    });
+});
+
+// get all inventory
 itemRouter.get('/get-info/:id', (req, res) => {
     Item.findById({ _id: req.params.id }).exec((err, item) => {
         if (err) {

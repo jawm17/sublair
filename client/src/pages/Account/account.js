@@ -9,10 +9,12 @@ export default function Account(props) {
     const { setIsAuthenticated, setUser } = useContext(AuthContext);
     const [username, setUsername] = useState("");
     const [inventory, setInventory] = useState([]);
+    const [orders, setOrders] = useState([]);
 
     useEffect(() => {
         getUserInfo();
         getInventory();
+        getOrders();
     }, []);
 
     async function getUserInfo() {
@@ -21,6 +23,18 @@ export default function Account(props) {
             setUsername(res.data.username);
         } catch (err) {
             console.log(err);
+        }
+    }
+
+    async function getOrders() {
+        try {
+            const data = await axios.get("/item/get-orders");
+            console.log(data);
+            if (data.data?.document) {
+                setOrders(data.data.document);
+            }
+        } catch (error) {
+            console.log(error);
         }
     }
 
@@ -80,13 +94,13 @@ export default function Account(props) {
                         <div id="adminBody">
                             <div id="quickStats">
                                 <div id="totalSales">
-                                    Total Sales: $14,000
+                                    Total Sales: $0
                                 </div>
                                 <div id="24hrSales">
-                                    24HR sales: $278
+                                    24HR sales: $0
                                 </div>
                                 <div id="24hrSales">
-                                    24HR SITE visitors: 84
+                                    24HR SITE visitors: 0
                                 </div>
                             </div>
                             <div className="subTitle" id="listTitle">
@@ -113,11 +127,14 @@ export default function Account(props) {
                             <div id="horLine">
 
                             </div>
-                            <Order />
-                            <Order />
-                            <Order />
-                            <Order />
-                            <Order />
+                            {orders.map((order) => {
+                                return <Order 
+                                    amountPayed={order.amountPayed}
+                                    createdAt={order.createdAt}
+                                    payerName={order.payerName}
+                                    orderId={order.orderId}
+                                />
+                            })}
                         </div>
                     </div>
                 </div>

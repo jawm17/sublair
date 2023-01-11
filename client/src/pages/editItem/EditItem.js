@@ -136,7 +136,7 @@ export default function EditItem(props) {
                                     <img id={thumbnail === images.length - (index + 1) ? "thumbnailImage" : ""} src={images[images.length - (index + 1)]} className="imageSample"></img></div>
                             }) : <div id="addImageMessage">please add an image</div>}
                         </div>
-                        <div id="itemOrders">
+                        {/* <div id="itemOrders">
                             {itemOrders.map((order) => {
                                 return <Order 
                                     amountPayed={order.amountPayed}
@@ -147,7 +147,7 @@ export default function EditItem(props) {
                                     key={order.orderId}
                                 />
                             })}
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
