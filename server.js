@@ -27,9 +27,9 @@ app.use(router);
 
 // Connect to the Mongo DB
 if (process.env.NODE_ENV === "production") {
-  mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
+  mongoose.connect(db_dev, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 } else {
-  mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
+  mongoose.connect(db_dev, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 }
 
 // Start the API server

@@ -56,18 +56,6 @@ const PaypalCheckoutButton = (props) => {
         createOrder={(data, actions) => {
             return actions.order.create({
                 purchase_units: [
-                    // {
-                    //     description: product.title,
-                    //     amount: {
-                    //         value: product.price,
-
-                    //     },
-                    //     reference_id: product.itemId,
-                    //     quantity: 2
-                    // }
-
-
-
                     {
                         amount: {
                             value: totalValue,

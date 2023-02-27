@@ -6,9 +6,6 @@ export default function Order(props) {
 
     return (
         <div className="orderItem">
-            <div className="leftOrderStat">
-                {props.itemName}
-            </div>
             <div>
                 ${props.amountPayed}
             </div>
